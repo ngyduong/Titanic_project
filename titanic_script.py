@@ -27,9 +27,11 @@ titanic = train.append(test, ignore_index=True, sort=False)
 
 # ==================== CLEANING DATA ==================== #
 
-# //-- We create the variable Famsize as family size, the size of each family on board \\-- #
+# //-- New variable Famsize \\-- #
 
-titanic['Famsize'] = titanic['SibSp'] + titanic['Parch']
+titanic['Famsize'] = titanic['SibSp'] + titanic['Parch'] + 1
+# We create the variable Famsize as family size, the size of each family on board
+# It is important to add +1 because we have to count the person itself as member of the family
 
 # //-- We extract the Deck from cabin number and name the new variable Deck \\-- #
 
