@@ -7,15 +7,10 @@ import matplotlib as plt
 import seaborn as sns
 import sklearn
 
-from sklearn.preprocessing import Imputer
-
 # ==================== DATA MANIPULATION ==================== #
 
 test = pd.read_csv("titanic_data/test.csv")
 train = pd.read_csv("titanic_data/train.csv")
-
-# save PassengerId for final submission
-passengerId = test.PassengerId
 
 # create dummy variables to separate data later on
 # if Train_set = 1 the observation was in the train originally
@@ -62,17 +57,48 @@ titanic.isnull().sum()
 titanic.Age.describe()
 titanic.Age.hist()
 # The mean and the median are close to each other with 29.7 and 28 respectively
-# Most of the observations are between 20 and 30 yo
-# We can maybe replace the missing values by the median
+# The easy solution would be to replace the missing ages by the mean or median but
+# we can also split the name and get the title for each class and then uses the titles
+# to get a better approximation of the age
 
-# We now will replace the missing age by it's median
+comma_split = titanic.Name.str.split(", ", n=1, expand=True)
+point_split = comma_split.iloc[:, 1].str.split('.', n=1, expand=True)
 
-imp = Imputer(missing_values='NaN', strategy='median', axis=1)
-titanic["New_age"] = imp.fit_transform(titanic['Age'].values.reshape(1, -1)).T
-# We now have new age as our new age variable without missing values
+titanic["Title"] = point_split.iloc[:, 0]
+# We now have the title of each passenger separated from the variable Name
+# There is in total 18 different title, I will narrow them down to make a generalized title class
 
-titanic.New_age.describe()
-# The median is still 28 and the mean is slightly smaller, decreased from 29.7 to 29.5
+def generalized_title(x):
+    if x in ["Mr", 'Mrs', "Miss", "Master", "Dr"]:
+        return(x)
+    elif x in ["Don", "Lady", "Sir", "the Countess", "Dona", "Jonkheer", ""]:
+        return("Nobility")
+    elif x in ["Rev", "Major", "Col", "Capt"]:
+        return("Officer")
+    elif x == "Mme":
+        return("Mrs")
+    elif x in ["Ms", "Mlle"]:
+        return("Miss")
+    else:
+        return("ERROR")
+
+titanic["Title"] = titanic.Title.apply(lambda x: generalized_title(x))
+# We now have narrowed down the 18 different title into only 7 generalized Title
+
+
+Age_by_title = pd.DataFrame({'mean_age': titanic.groupby('Title').mean().loc[:, "Age"],
+                             'median_age': titanic.groupby('Title').median().loc[:, "Age"],
+                             'count': titanic.Title.value_counts(),
+                             'age_missing': titanic.Age.isnull().groupby(titanic['Title']).sum()})
+# We now have the mean and the median age for each title as well as the number of missing age for each title
+
+# We will now replace the missing age by the median age depending on the title
+for index, i in enumerate(titanic["Age"]):
+    if pd.isnull(i) == False:
+        titanic.loc[index, "Age"] = i
+    else:
+        i_title = titanic.loc[index, "Title"]
+        titanic.loc[index, 'Age'] = Age_by_title.loc[i_title, "median_age"]
 
 ## Fill NaN in Embarked variable ##
 
