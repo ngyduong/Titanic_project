@@ -6,6 +6,7 @@ import re
 import matplotlib as plt
 import seaborn as sns
 import sklearn
+
 from sklearn.preprocessing import Imputer
 
 # ==================== IMPORT DATA ==================== #
@@ -17,12 +18,12 @@ train = pd.read_csv("titanic_data/train.csv")
 passengerId = test.PassengerId
 
 # create dummy variables to separate data later on
-# if train = 1 the observation was in the train originally
-train["train"] = 1
-test["train"] = 0
+# if Train_set = 1 the observation was in the train originally
+train["Train_set"] = 1
+test["Train_set"] = 0
 
 # merge train and test
-titanic = train.append(test, ignore_index=True)
+titanic = train.append(test, ignore_index=True, sort=False)
 
 # ==================== CLEANING DATA ==================== #
 
@@ -52,7 +53,7 @@ titanic.isnull().sum()
 
 # //-- Let's try now to fill the missing values for each variables \\-- #
 
-## We begin with age ##
+## Fill NaN in Age variable ##
 
 # Let's have a first statistical analysis
 
@@ -68,8 +69,31 @@ imp = Imputer(missing_values='NaN', strategy='median', axis=1)
 titanic["New_age"] = imp.fit_transform(titanic['Age'].values.reshape(1, -1)).T
 # We now have new age as our new age variable without missing values
 
+titanic.New_age.describe()
+# The median is still 28 and the mean is slightly smaller, decreased from 29.7 to 29.5
 
+## Fill NaN in Embarked variable ##
 
+titanic.Embarked.value_counts()
+# The big majority of embarkation were from Southampton (S)
+# Since there is only 2 missing values we can either decide to remove them or replace them by the most
+# common embarkation port which is Southampton. I personally prefer the latter solution.
+
+# let's replace the missing embarkation port by Southampton (S)
+titanic.Embarked.fillna("S",inplace=True)
+
+## Fill NaN in Fare variable ##
+
+titanic.Fare.describe()
+titanic.Fare.hist()
+# The mean Fare is 33.3 meanwhile the median is 14.45
+# Most of the distribution is 0 and 50, let's plot the distribution of Fare only between 0 and 50
+
+fare_filtered = pd.Series(filter(lambda x: x <= 0, titanic.Fare))
+fare_filtered.hist()
+# Most of the distribution is actually before 15 so I have decided to replace the missing value by it's median
+
+titanic.Fare.fillna(titanic.Fare.median(),inplace=True)
 
 
 
