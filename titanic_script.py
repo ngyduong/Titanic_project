@@ -9,7 +9,7 @@ import sklearn
 
 from sklearn.preprocessing import Imputer
 
-# ==================== IMPORT DATA ==================== #
+# ==================== DATA MANIPULATION ==================== #
 
 test = pd.read_csv("titanic_data/test.csv")
 train = pd.read_csv("titanic_data/train.csv")
@@ -48,7 +48,7 @@ titanic["Deck"] = titanic["Cabin"].apply(lambda x: get_deck(x))
 # //-- We check the missing values in each dataset \\-- #
 
 titanic.isnull().sum()
-# It seems that there is mostly missing values for the variables Cabin, Embarked, age, Fare and Deck
+# It seems that there is mostly missing values for the variables Embarked, age, Fare and Deck
 # There is 418 missing value for survived because in the original test data set there was no variable survived
 
 # //-- Let's try now to fill the missing values for each variables \\-- #
@@ -80,7 +80,7 @@ titanic.Embarked.value_counts()
 # common embarkation port which is Southampton. I personally prefer the latter solution.
 
 # let's replace the missing embarkation port by Southampton (S)
-titanic.Embarked.fillna("S",inplace=True)
+titanic.Embarked.fillna("S", inplace=True)
 
 ## Fill NaN in Fare variable ##
 
@@ -93,7 +93,16 @@ fare_filtered = pd.Series(filter(lambda x: x <= 0, titanic.Fare))
 fare_filtered.hist()
 # Most of the distribution is actually before 15 so I have decided to replace the missing value by it's median
 
-titanic.Fare.fillna(titanic.Fare.median(),inplace=True)
+# let's replace the missing fare it's median
+titanic.Fare.fillna(titanic.Fare.median(), inplace=True)
+
+## Fill NaN in Deck variable ##
+
+# As there is too many missing values for Deck (and henceforh Cabin) with over 1000 missing values
+# it is not wise to replace the value by the most common value or drop all observations with missing values
+# Therefore i will replace the missing values by a "Unknown" for unknown deck
+
+titanic.Deck.fillna("Unknown", inplace=True)
 
 
 
