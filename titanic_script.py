@@ -3,7 +3,7 @@
 import pandas as pd
 # import numpy as np
 # import re
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 # import seaborn as sns
 # import sklearn
 
@@ -146,6 +146,35 @@ titanic["Famsize"] = titanic.Famsize.apply(lambda x: Famsize_categorical(x))
 
 # //-- Derived variables from Age \\-- #
 
+plt.hist(titanic.Age)
+plt.hist(titanic.Age, range=(0, 30))
+plt.hist(titanic.Age, range=(30, 80))
+titanic.Age.describe()
+# the distribution of the age looks almost like a normal distribution
+
+# Given the shape of the distribution we can separate the Age by group such as
+# Age_group = 0_16 if the age is between 0 and 16 included
+# Age_group = 17_24 if the age is between 17 and 24 included
+# Age_group = 25_30 if the age is between 25 and 30 included
+# Age_group = 31_40 if the age is between 31 and 40 included
+# Age_group = over_40 if the age is strictly higher than 40
+
+def Age_categorical(x):
+    if x <= 16:
+        return("0_16")
+    elif x <= 24:
+        return("17_24")
+    elif x <= 30:
+        return("25_30")
+    elif x <= 40:
+        return("31_40")
+    else:
+        return("over_40")
+
+titanic["Age_group"] = titanic.Age.apply(lambda x: Age_categorical(x))
+
+titanic.Age_group.value_counts()
+titanic.Age_group.hist()
 
 
 
