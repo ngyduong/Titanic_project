@@ -1,11 +1,15 @@
 # ==================== PACKAGES ==================== #
 
+
 import pandas as pd
 # import numpy as np
 # import re
 import matplotlib.pyplot as plt
 # import seaborn as sns
-# import sklearn
+import sklearn
+
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import cross_val_score
 
 
 # ==================== DATA MANIPULATION ==================== #
@@ -23,27 +27,10 @@ test["Train_set"] = 0
 titanic = train.append(test, ignore_index=True, sort=False)
 
 
-# ==================== CLEANING DATA ==================== #
+# ==================== DATA PROCESSING ==================== #
 
 
-# //-- We check the missing values in each dataset \\-- #
-
-titanic.isnull().sum()
-# It seems that there is mostly missing values for the variables Embarked, age, Fare and Deck
-# There is 418 missing value for survived because in the original test data set there was no variable survived
-
-# //-- Let's try now to fill the missing values for each variables \\-- #
-
-## Fill NaN in Age variable ##
-
-# Let's have a first statistical analysis
-
-titanic.Age.describe()
-titanic.Age.hist()
-# The mean and the median are close to each other with 29.7 and 28 respectively
-# The easy solution would be to replace the missing ages by the mean or median but
-# we can also split the name and get the title for each class and then uses the titles
-# to get a better approximation of the age
+# //-- EXTRACT TITLES FROM NAME VARIABLES \\-- #
 
 comma_split = titanic.Name.str.split(", ", n=1, expand=True)
 point_split = comma_split.iloc[:, 1].str.split('.', n=1, expand=True)
@@ -55,7 +42,7 @@ titanic["Title"] = point_split.iloc[:, 0]
 def generalized_title(x):
     if x in ["Mr", 'Mrs', "Miss", "Master", "Dr"]:
         return(x)
-    elif x in ["Don", "Lady", "Sir", "the Countess", "Dona", "Jonkheer", ""]:
+    elif x in ["Don", "Lady", "Sir", "the Countess", "Dona", "Jonkheer"]:
         return("Nobility")
     elif x in ["Rev", "Major", "Col", "Capt"]:
         return("Officer")
@@ -69,57 +56,12 @@ def generalized_title(x):
 titanic["Title"] = titanic.Title.apply(lambda x: generalized_title(x))
 # We now have narrowed down the 18 different title into only 7 generalized Title
 
+# As we need the data in categorical form we will create dummy variables from Title
+titanic = pd.concat([titanic, pd.get_dummies(titanic["Title"])], axis=1)
 
-Age_by_title = pd.DataFrame({'mean_age': titanic.groupby('Title').mean().loc[:, "Age"],
-                             'median_age': titanic.groupby('Title').median().loc[:, "Age"],
-                             'count': titanic.Title.value_counts(),
-                             'age_missing': titanic.Age.isnull().groupby(titanic['Title']).sum()})
-# We now have the mean and the median age for each title as well as the number of missing age for each title
+# //-- CREATES FAMSIZE \\-- #
 
-# We will now replace the missing age by the median age depending on the title
-for index, i in enumerate(titanic["Age"]):
-    if pd.isnull(i) == False:
-        titanic.loc[index, "Age"] = i
-    else:
-        i_title = titanic.loc[index, "Title"]
-        titanic.loc[index, 'Age'] = Age_by_title.loc[i_title, "median_age"]
-
-## Fill NaN in Embarked variable ##
-
-titanic.Embarked.value_counts()
-# The big majority of embarkation were from Southampton (S)
-# Since there is only 2 missing values we can either decide to remove them or replace them by the most
-# common embarkation port which is Southampton. I personally prefer the latter solution.
-
-# let's replace the missing embarkation port by Southampton (S)
-titanic.Embarked.fillna("S", inplace=True)
-
-## Fill NaN in Fare variable ##
-
-Fare_by_title = pd.DataFrame({'mean_fare': titanic.groupby('Title').mean().loc[:, "Fare"],
-                              'median_fare': titanic.groupby('Title').median().loc[:, "Fare"],
-                              'count': titanic.Title.value_counts(),
-                              'fare_missing': titanic.Fare.isnull().groupby(titanic['Title']).sum()})
-
-# As there is only 1 missing value from Fare, and by looking at this dataframe
-# we can see that the only missing Fare is from a passenger with the title "Mr"
-# I will therefore replace the missing value with the median value of Fare for "Mr"
-
-titanic.Fare.fillna(Fare_by_title.loc['Mr', "median_fare"], inplace=True)
-
-## Dropping the variable Cabin ##
-
-# As there is too many missing value for Cabin, 1014 missing values over 1309 it's not wise to keep the
-# variable as it can create noises in the prediction. Therefore I have decided to remove the variable from the dataset
-titanic = titanic.drop(columns="Cabin")
-
-
-# ==================== Creating derived variables ==================== #
-
-
-# //-- Derived variables from SibSp and Parch \\-- #
-
-## We create the variable Famsize as family size, the size of each family on board
+# We create the variable Famsize as family size, the size of each family on board
 titanic.Famsize = titanic['SibSp'] + titanic['Parch'] + 1
 # It is important to add +1 because we have to count the person itself as member of the family
 
@@ -144,12 +86,103 @@ def Famsize_categorical(x):
 
 titanic["Famsize"] = titanic.Famsize.apply(lambda x: Famsize_categorical(x))
 
+# As we need the data in categorical form we will create dummy variables from Famsize
+titanic = pd.concat([titanic, pd.get_dummies(titanic["Famsize"])], axis=1)
+
+# //-- CREATES DUMMY FOR SEX AND EMBARKED VARIABLES \\-- #
+
+titanic = pd.concat([titanic, pd.get_dummies(titanic["Sex"])], axis=1)
+titanic = pd.concat([titanic, pd.get_dummies(titanic["Embarked"])], axis=1)
+
+# ==================== DEALING WITH EMBARKED AND FARE MISSING VALUES ==================== #
+
+
+titanic.isnull().sum()
+# It seems that there is mostly missing values for the variables Embarked, age, Fare and Deck
+# There is 418 missing value for survived because in the original test data set there was no variable survived
+
+# //-- Dropping variables \\-- #
+
+# As there is too many missing value for Cabin, 1014 missing values over 1309 it's not wise to keep the
+# variable as it can create noises in the prediction. Therefore I have decided to remove the variable from the dataset
+# There doesn't seem to have any valuable information in the variable Ticket so I will drop the variable off as well
+titanic = titanic.drop(columns=["Cabin", 'Ticket'])
+
+# //-- Let's try now to fill the missing values for each variables \\-- #
+
+## Fill NaN in Embarked variable ##
+
+titanic.Embarked.value_counts()
+
+# The big majority of embarkation were from Southampton (S)
+# Since there is only 2 missing values we can either decide to remove them or replace them by the most
+# common embarkation port which is Southampton. I personally prefer the latter solution.
+
+# let's replace the missing embarkation port by Southampton (S)
+titanic.Embarked.fillna("S", inplace=True)
+
+## Fill NaN in Fare variable ##
+
+Fare_by_title = pd.DataFrame({'mean_fare': titanic.groupby('Title').mean().loc[:, "Fare"],
+                              'median_fare': titanic.groupby('Title').median().loc[:, "Fare"],
+                              'count': titanic.Title.value_counts(),
+                              'fare_missing': titanic.Fare.isnull().groupby(titanic['Title']).sum()})
+
+# As there is only 1 missing value from Fare, and by looking at this dataframe
+# we can see that the only missing Fare is from a passenger with the title "Mr"
+# I will therefore replace the missing value with the median value of Fare for "Mr"
+
+titanic.Fare.fillna(Fare_by_title.loc['Mr', "median_fare"], inplace=True)
+
+
+# ==================== DEALING WITH AGE MISSING VALUES ==================== #
+
+# Let's have a first statistical analysis
+
+titanic.Age.describe()
+titanic.Age.hist()
+# The mean and the median are close to each other with 29.9 and 28 respectively
+# The easy solution would be to replace the missing ages by the mean or median but
+# we can also use random forest to predict the age
+
+# we will now split the dataset into 2 datasets, the one with no empty age will be used as training data for the model
+titanic_WithAge = titanic[pd.isnull(titanic['Age']) == False]
+titanic_WithoutAge = titanic[pd.isnull(titanic['Age'])]
+
+independent_variables = ['Pclass', 'female', 'male', 'C', 'Q', 'S',
+                         'Dr', 'Master', 'Miss', 'Mr', 'Mrs', 'Nobility', 'Officer',
+                         'big_family', 'small_family', 'solo',
+                         'Parch', "SibSp",
+                         # 'Fare'
+                         ]
+
+rfModel_Age = RandomForestRegressor(n_estimators=750, random_state=1234)
+
+age_accuracies = cross_val_score(estimator=rfModel_Age,
+                                 X=titanic_WithAge.loc[:, independent_variables],
+                                 y=titanic_WithAge.loc[:, 'Age'],
+                                 cv=10)
+
+print("The CV accuracy mean of Age prediction is", round(age_accuracies.mean(), ndigits=2))
+print("The CV accuracy max of Age prediction is", round(age_accuracies.max(), ndigits=2))
+print("The CV accuracy min of Age prediction is", round(age_accuracies.min(), ndigits=2))
+
+rfModel_Age.fit(titanic_WithAge.loc[:, independent_variables], titanic_WithAge.loc[:, 'Age'])
+Predicted_age = rfModel_Age.predict(X = titanic_WithoutAge.loc[:,independent_variables])
+titanic_WithoutAge['Age'] = Predicted_age.astype(int)
+
+titanic = titanic_WithAge.append(titanic_WithoutAge)
+titanic = titanic.sort_values(by=['PassengerId']).reset_index(drop=True)
+
+
+# ==================== CREATING DERIVED VARIABLES ==================== #
+
 # //-- Derived variables from Age \\-- #
 
+titanic.Age.describe()
 plt.hist(titanic.Age)
 plt.hist(titanic.Age, range=(0, 30))
 plt.hist(titanic.Age, range=(30, 80))
-titanic.Age.describe()
 # the distribution of the age looks almost like a normal distribution
 
 # Given the shape of the distribution we can separate the Age by group such as
@@ -175,7 +208,3 @@ titanic["Age_group"] = titanic.Age.apply(lambda x: Age_categorical(x))
 
 titanic.Age_group.value_counts()
 titanic.Age_group.hist()
-
-
-
-
