@@ -2,15 +2,14 @@
 
 
 import pandas as pd
-# import numpy as np
+import numpy as np
 # import re
 import matplotlib.pyplot as plt
 # import seaborn as sns
 import sklearn
 
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import cross_val_score
-
+from sklearn.model_selection import cross_val_score, RandomizedSearchCV
 
 # ==================== DATA MANIPULATION ==================== #
 
@@ -142,19 +141,22 @@ titanic.Fare.fillna(Fare_by_title.loc['Mr', "median_fare"], inplace=True)
 titanic.Age.describe()
 titanic.Age.hist()
 # The mean and the median are close to each other with 29.9 and 28 respectively
-# The easy solution would be to replace the missing ages by the mean or median but
-# we can also use random forest to predict the age
+# The easy solution would be to replace the missing ages by the mean or median
+# but we can also use random forest to predict the age
 
 # we will now split the dataset into 2 datasets, the one with no empty age will be used as training data for the model
 titanic_WithAge = titanic[pd.isnull(titanic['Age']) == False]
 titanic_WithoutAge = titanic[pd.isnull(titanic['Age'])]
 
+# We will use theses variables as independent variables to predict the Age
 independent_variables = ['Pclass', 'female', 'male', 'C', 'Q', 'S',
                          'Dr', 'Master', 'Miss', 'Mr', 'Mrs', 'Nobility', 'Officer',
                          'big_family', 'small_family', 'solo',
                          'Parch', "SibSp",
                          # 'Fare'
                          ]
+
+# //-- First Random forest estimator \\-- #
 
 rfModel_Age = RandomForestRegressor(n_estimators=750, random_state=1234)
 
@@ -163,21 +165,86 @@ age_accuracies = cross_val_score(estimator=rfModel_Age,
                                  y=titanic_WithAge.loc[:, 'Age'],
                                  cv=10)
 
-print("The CV accuracy mean of Age prediction is", round(age_accuracies.mean(), ndigits=2))
-print("The CV accuracy max of Age prediction is", round(age_accuracies.max(), ndigits=2))
-print("The CV accuracy min of Age prediction is", round(age_accuracies.min(), ndigits=2))
+print("The MEAN CV accuracy of Age prediction is", round(age_accuracies.mean(), ndigits=2))
+print("The MAX CV accuracy of Age prediction is", round(age_accuracies.max(), ndigits=2))
+print("The MIN CV accuracy of Age prediction is", round(age_accuracies.min(), ndigits=2))
+# The accuracy is not too bad but we can maybe improve the score by performing a hyperparameter tuning
 
-rfModel_Age.fit(titanic_WithAge.loc[:, independent_variables], titanic_WithAge.loc[:, 'Age'])
-Predicted_age = rfModel_Age.predict(X = titanic_WithoutAge.loc[:,independent_variables])
+print(rfModel_Age.get_params())
+
+# //--  Hyperparameter tuning for Age Random forest  \\-- #
+
+# Number of trees in random forest
+n_estimators = [int(x) for x in np.linspace(start = 200, stop = 2000, num = 10)]
+# Number of features to consider at every split
+max_features = ['auto', 'sqrt']
+# Maximum number of levels in tree
+max_depth = [int(x) for x in np.linspace(10, 110, num = 11)]
+max_depth.append(None)
+# Minimum number of samples required to split a node
+min_samples_split = [2, 5, 10]
+# Minimum number of samples required at each leaf node
+min_samples_leaf = [1, 2, 4]
+# Method of selecting samples for training each tree
+bootstrap = [True, False]
+
+random_grid = {'n_estimators': n_estimators,
+               'max_features': max_features,
+               'max_depth': max_depth,
+               'min_samples_split': min_samples_split,
+               'min_samples_leaf': min_samples_leaf,
+               'bootstrap': bootstrap}
+
+rfModel_Age2 = RandomForestRegressor()
+
+rf_random = RandomizedSearchCV(estimator = rfModel_Age2,
+                               param_distributions = random_grid,
+                               n_iter = 20,
+                               cv = 10,
+                               verbose=2,
+                               random_state=1234,
+                               n_jobs = 2)
+
+rf_random.fit(titanic_WithAge.loc[:, independent_variables], titanic_WithAge.loc[:, 'Age'])
+
+rf_random.best_params_
+
+# {   'n_estimators': 1800,
+#     'min_samples_split': 10,
+#     'min_samples_leaf': 2,
+#     'max_features': 'auto',
+#     'max_depth': 80,
+#     'bootstrap': True   }
+
+Tunned_rfModel_Age = RandomForestRegressor(n_estimators = 1800,
+                                           min_samples_split=10,
+                                           min_samples_leaf=2,
+                                           max_features="auto",
+                                           max_depth=80,
+                                           bootstrap=True,
+                                           random_state=1234)
+
+Tunned_age_accuracies = cross_val_score(estimator=Tunned_rfModel_Age,
+                                        X=titanic_WithAge.loc[:, independent_variables],
+                                        y=titanic_WithAge.loc[:, 'Age'],
+                                        cv=5)
+
+print("The MEAN tunned CV accuracy of Age prediction is", round(Tunned_age_accuracies.mean(), ndigits=2))
+print("The MAX tunned CV accuracy of Age prediction is", round(Tunned_age_accuracies.max(), ndigits=2))
+print("The MIN tunned CV accuracy of Age prediction is", round(Tunned_age_accuracies.min(), ndigits=2))
+
+# The model has slightly improved, by roughly 1%.
+
+# //--  Fit the tunned model in the dataset  \\-- #
+
+Tunned_rfModel_Age.fit(titanic_WithAge.loc[:, independent_variables], titanic_WithAge.loc[:, 'Age'])
+Predicted_age = Tunned_rfModel_Age.predict(X = titanic_WithoutAge.loc[:,independent_variables])
 titanic_WithoutAge['Age'] = Predicted_age.astype(int)
 
 titanic = titanic_WithAge.append(titanic_WithoutAge)
 titanic = titanic.sort_values(by=['PassengerId']).reset_index(drop=True)
 
-
-# ==================== CREATING DERIVED VARIABLES ==================== #
-
-# //-- Derived variables from Age \\-- #
+# We now have all observations of Age without missing values by random forest prediction
 
 titanic.Age.describe()
 plt.hist(titanic.Age)
@@ -206,5 +273,4 @@ def Age_categorical(x):
 
 titanic["Age_group"] = titanic.Age.apply(lambda x: Age_categorical(x))
 
-titanic.Age_group.value_counts()
-titanic.Age_group.hist()
+titanic = pd.concat([titanic, pd.get_dummies(titanic["Age_group"])], axis=1)
