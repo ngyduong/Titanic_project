@@ -280,5 +280,5 @@ Clean_train = titanic.loc[titanic.Train_set == 1, :].reset_index(drop=True).drop
 Clean_test = titanic.loc[titanic.Train_set == 0, :].reset_index(drop=True).drop(["Train_set", "Survived"], axis=1)
 
 # I export them as csv file
-Clean_train.to_csv("titanic_data/Clean_train.csv")
-Clean_test.to_csv("titanic_data/Clean_test.csv")
+Clean_train.to_csv("titanic_data/Clean_train.csv", index=False)
+Clean_test.to_csv("titanic_data/Clean_test.csv", index=False)
