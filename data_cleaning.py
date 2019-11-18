@@ -8,7 +8,7 @@ import sklearn
 
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import cross_val_score, RandomizedSearchCV
-
+# from sklearn.linear_model import LassoLarsCV
 
 # ==================== DATA MANIPULATION ==================== #
 
@@ -27,6 +27,13 @@ titanic = train.append(test, ignore_index=True, sort=False)
 
 # ==================== DATA PROCESSING ==================== #
 
+
+# //-- CREATES DUMMY FOR SEX AND PCLASS VARIABLES \\-- #
+
+titanic = pd.concat([titanic, pd.get_dummies(titanic["Sex"])], axis=1)
+titanic = pd.concat([titanic, pd.get_dummies(titanic["Pclass"])], axis=1)
+titanic.rename(columns={1:'Pclass_1', 2:'Pclass_2', 3:'Pclass_3'}, inplace=True)
+titanic = titanic.drop(["Sex", "Pclass"], axis=1)
 
 # //-- EXTRACT TITLES FROM NAME VARIABLES \\-- #
 
@@ -56,11 +63,12 @@ titanic["Title"] = titanic.Title.apply(lambda x: generalized_title(x))
 
 # As we need the data in categorical form we will create dummy variables from Title
 titanic = pd.concat([titanic, pd.get_dummies(titanic["Title"])], axis=1)
+titanic=titanic.drop('Title', axis=1)
 
 # //-- CREATES FAMSIZE \\-- #
 
 # We create the variable Famsize as family size, the size of each family on board
-titanic.Famsize = titanic['SibSp'] + titanic['Parch'] + 1
+titanic["Famsize"] = titanic['SibSp'] + titanic['Parch'] + 1
 # It is important to add +1 because we have to count the person itself as member of the family
 
 titanic.Famsize.value_counts()
@@ -86,18 +94,7 @@ titanic["Famsize"] = titanic.Famsize.apply(lambda x: Famsize_categorical(x))
 
 # As we need the data in categorical form we will create dummy variables from Famsize
 titanic = pd.concat([titanic, pd.get_dummies(titanic["Famsize"])], axis=1)
-
-# //-- CREATES DUMMY FOR SEX AND EMBARKED VARIABLES \\-- #
-
-titanic = pd.concat([titanic, pd.get_dummies(titanic["Sex"])], axis=1)
-titanic = pd.concat([titanic, pd.get_dummies(titanic["Embarked"])], axis=1)
-
-# ==================== DEALING WITH EMBARKED AND FARE MISSING VALUES ==================== #
-
-
-titanic.isnull().sum()
-# It seems that there is mostly missing values for the variables Embarked, age, Fare and Deck
-# There is 418 missing value for survived because in the original test data set there was no variable survived
+titanic = titanic.drop('Famsize', axis=1)
 
 # //-- Dropping variables \\-- #
 
@@ -105,6 +102,13 @@ titanic.isnull().sum()
 # variable as it can create noises in the prediction. Therefore I have decided to remove the variable from the dataset
 # There doesn't seem to have any valuable information in the variable Ticket so I will drop the variable off as well
 titanic = titanic.drop(columns=["Cabin", 'Ticket'])
+
+
+# ==================== DEALING WITH MISSING VALUES ==================== #
+
+
+titanic.isnull().sum()
+# It seems that there is mostly missing values for the variables Embarked, Age and Fare
 
 # //-- Let's try now to fill the missing values for each variables \\-- #
 
@@ -119,41 +123,47 @@ titanic.Embarked.value_counts()
 # let's replace the missing embarkation port by Southampton (S)
 titanic.Embarked.fillna("S", inplace=True)
 
+# Now that there is no more missing value we can create dummy variables for Embarked
+titanic = pd.concat([titanic, pd.get_dummies(titanic["Embarked"])], axis=1)
+titanic = titanic.drop("Embarked", axis=1)
+
 ## Fill NaN in Fare variable ##
 
-Fare_by_title = pd.DataFrame({'mean_fare': titanic.groupby('Title').mean().loc[:, "Fare"],
-                              'median_fare': titanic.groupby('Title').median().loc[:, "Fare"],
-                              'count': titanic.Title.value_counts(),
-                              'fare_missing': titanic.Fare.isnull().groupby(titanic['Title']).sum()})
-
-# As there is only 1 missing value from Fare, and by looking at this dataframe
-# we can see that the only missing Fare is from a passenger with the title "Mr"
-# I will therefore replace the missing value with the median value of Fare for "Mr"
-
-titanic.Fare.fillna(Fare_by_title.loc['Mr', "median_fare"], inplace=True)
+titanic.Fare.fillna(titanic.Fare.median(), inplace=True)
+# As there is only 1 missing value for Fare we can replace the missing value by it's median
 
 
-# ==================== DEALING WITH AGE MISSING VALUES ==================== #
+# ==================== Fill NaN in Age variable with RANDOM FOREST ==================== #
+
 
 # Let's have a first statistical analysis
 
 titanic.Age.describe()
-titanic.Age.hist()
 # The mean and the median are close to each other with 29.9 and 28 respectively
-# The easy solution would be to replace the missing ages by the mean or median
-# but we can also use random forest to predict the age
 
 # we will now split the dataset into 2 datasets, the one with no empty age will be used as training data for the model
 titanic_WithAge = titanic[pd.isnull(titanic['Age']) == False]
 titanic_WithoutAge = titanic[pd.isnull(titanic['Age'])]
 
 # We will use theses variables as independent variables to predict the Age
-independent_variables = ['Pclass', 'female', 'male', 'C', 'Q', 'S',
+independent_variables = ['Pclass_1', 'Pclass_2', 'Pclass_3', 'female', 'male', 'C', 'Q', 'S',
                          'Dr', 'Master', 'Miss', 'Mr', 'Mrs', 'Nobility', 'Officer',
-                         'big_family', 'small_family', 'solo',
-                         'Parch', "SibSp",
-                         # 'Fare'
-                         ]
+                         'big_family', 'small_family', 'solo', 'Parch', "SibSp", 'Fare']
+
+
+# //-- Features selections by Lasso Regression \\-- #
+#
+# x_train = titanic_WithAge.loc[:, independent_variables]
+# y_train = titanic_WithAge.loc[:, 'Age']
+#
+# Model_Lasso = LassoLarsCV(cv = 10, precompute = False).fit(x_train, y_train)
+#
+# lasso_coefs = pd.DataFrame(Model_Lasso.coef_)
+# tlasso_coefs['features'] = pd.Series(titanic_WithAge.loc[:, independent_variables].columns)
+# tlasso_coefs = tlasso_coefs.sort_values(by=[0])
+#
+# lasso_coef = list(tlasso_coefs.loc[tlasso_coefs[0] > 0, "features"])
+
 
 # //-- First Random forest estimator \\-- #
 
@@ -165,14 +175,11 @@ age_accuracies = cross_val_score(estimator=rfModel_Age,
                                  cv=10,
                                  n_jobs=2)
 
-print("The MEAN CV accuracy of Age prediction is", round(age_accuracies.mean(), ndigits=2))
-print("The MAX CV accuracy of Age prediction is", round(age_accuracies.max(), ndigits=2))
-print("The MIN CV accuracy of Age prediction is", round(age_accuracies.min(), ndigits=2))
+print("The MEAN CV score is", round(age_accuracies.mean(), ndigits=2))
+print("The standard deviation is", round(age_accuracies.std(), ndigits=2))
 
-# The MEAN CV accuracy of Age prediction is 0.43
-# The MAX CV accuracy of Age prediction is 0.52
-# The MIN CV accuracy of Age prediction is 0.33
-# The accuracy is not too bad but we can maybe improve the score by performing a hyperparameter tuning
+# The MEAN CV score is 0.36
+# The standard deviation is 0.09
 
 # //--  Hyperparameter tuning for Age Random forest  \\-- #
 
@@ -197,11 +204,9 @@ random_grid = {'n_estimators': n_estimators,
                'min_samples_leaf': min_samples_leaf,
                'bootstrap': bootstrap}
 
-rfModel_Age2 = RandomForestRegressor()
-
-rf_random = RandomizedSearchCV(estimator = rfModel_Age2,
+rf_random = RandomizedSearchCV(estimator = rfModel_Age,
                                param_distributions = random_grid,
-                               n_iter = 20,
+                               n_iter = 30,
                                cv = 10,
                                verbose=2,
                                random_state=1234,
@@ -212,11 +217,11 @@ rf_random.fit(titanic_WithAge.loc[:, independent_variables], titanic_WithAge.loc
 rf_random.best_params_
 
 Tunned_rfModel_Age = RandomForestRegressor(n_estimators = 1800,
-                                           min_samples_split=10,
-                                           min_samples_leaf=2,
-                                           max_features="auto",
-                                           max_depth=80,
-                                           bootstrap=True,
+                                           min_samples_split=5,
+                                           min_samples_leaf=4,
+                                           max_features="sqrt",
+                                           max_depth=70,
+                                           bootstrap=False,
                                            random_state=1234)
 
 Tunned_age_accuracies = cross_val_score(estimator=Tunned_rfModel_Age,
@@ -225,18 +230,17 @@ Tunned_age_accuracies = cross_val_score(estimator=Tunned_rfModel_Age,
                                         cv=10,
                                         n_jobs=2)
 
-print("The MEAN tunned CV accuracy of Age prediction is", round(Tunned_age_accuracies.mean(), ndigits=2))
-print("The MAX tunned CV accuracy of Age prediction is", round(Tunned_age_accuracies.max(), ndigits=2))
-print("The MIN tunned CV accuracy of Age prediction is", round(Tunned_age_accuracies.min(), ndigits=2))
+print("The new MEAN CV score is", round(Tunned_age_accuracies.mean(), ndigits=2))
+print("The new standard deviation is", round(Tunned_age_accuracies.std(), ndigits=2))
 
-# The MEAN tunned CV accuracy of Age prediction is 0.45
-# The MAX tunned CV accuracy of Age prediction is 0.54
-# The MIN tunned CV accuracy of Age prediction is 0.37
-# The model has slightly improved by 2% on average
+# The MEAN CV score is 0.44
+# The standard deviation is 0.06
+# The model has increase by 8% and the standard deviation has decreased by 3%
 
 # //--  Fit the tunned model in the dataset  \\-- #
 
 Tunned_rfModel_Age.fit(titanic_WithAge.loc[:, independent_variables], titanic_WithAge.loc[:, 'Age'])
+
 titanic_WithoutAge.loc[:, 'Age'] = Tunned_rfModel_Age.predict(X = titanic_WithoutAge.loc[:, independent_variables]).astype(int)
 
 titanic = titanic_WithAge.append(titanic_WithoutAge).sort_values(by=['PassengerId']).reset_index(drop=True)
@@ -248,30 +252,6 @@ plt.hist(titanic.Age)
 plt.hist(titanic.Age, range=(0, 30))
 plt.hist(titanic.Age, range=(30, 80))
 # the distribution of the age looks almost like a normal distribution
-
-# Given the shape of the distribution we can separate the Age by group such as
-# Age_group = 0_16 if the age is between 0 and 16 included
-# Age_group = 17_24 if the age is between 17 and 24 included
-# Age_group = 25_30 if the age is between 25 and 30 included
-# Age_group = 31_40 if the age is between 31 and 40 included
-# Age_group = over_40 if the age is strictly higher than 40
-
-def Age_categorical(x):
-    if x <= 16:
-        return("0_16")
-    elif x <= 24:
-        return("17_24")
-    elif x <= 30:
-        return("25_30")
-    elif x <= 40:
-        return("31_40")
-    else:
-        return("over_40")
-
-titanic["Age_group"] = titanic.Age.apply(lambda x: Age_categorical(x))
-
-titanic = pd.concat([titanic, pd.get_dummies(titanic["Age_group"])], axis=1)
-
 
 # ==================== SEPARATE THE DATA AGAIN AND GET BACK OUR TRAIN/TEST DATASETS ==================== #
 
