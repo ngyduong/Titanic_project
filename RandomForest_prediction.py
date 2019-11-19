@@ -1,3 +1,6 @@
+# Author: NGUYEN DUONG
+# Project: Titanic Machine Learning from Disaster
+
 # ==================== PACKAGES ==================== #
 
 
@@ -24,11 +27,6 @@ survival_features = ['Age', 'SibSp', 'Parch', 'Fare', 'female', 'male',
                      'Pclass_1', 'Pclass_2', 'Pclass_3', 'Dr', 'Master',
                      'Miss', 'Mr', 'Mrs', 'Nobility', 'Officer', 'big_family',
                      'small_family', 'solo', 'C', 'Q', 'S']
-
-# # //-- Standardize Fare variable \\-- #
-#
-# sc = StandardScaler()
-# train.loc[:, ["Fare"]] = sc.fit_transform(train.loc[:, ["Fare"]])
 
 # //--  Split the train dataset into train_x and train_y  \\-- #
 

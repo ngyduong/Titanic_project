@@ -1,3 +1,6 @@
+# Author: NGUYEN DUONG
+# Project: Titanic Machine Learning from Disaster
+
 # ==================== PACKAGES ==================== #
 
 
