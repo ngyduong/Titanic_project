@@ -257,7 +257,7 @@ plt.hist(titanic.Age, range=(30, 80))
 
 # I separate the titanic dataframe to their original train/test set
 Clean_train = titanic.loc[titanic.Train_set == 1, :].reset_index(drop=True).drop("Train_set", axis=1)
-Clean_test = titanic.loc[titanic.Train_set == 0, :].reset_index(drop=True).drop(["Train_set", "Survived"], axis=1)
+Clean_test = titanic.loc[titanic.Train_set == 0, :].reset_index(drop=True).drop(["Train_set"], axis=1)
 
 # I export them as csv file
 Clean_train.to_csv("titanic_data/Clean_train.csv", index=False)
