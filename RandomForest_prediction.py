@@ -6,16 +6,13 @@
 
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 import sklearn
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score, RandomizedSearchCV, GridSearchCV
-from sklearn import metrics
-from sklearn.preprocessing import StandardScaler
 
 
-# ==================== IMPORT MANIPULATION ==================== #
+# ==================== DATA MANIPULATION ==================== #
 
 
 test = pd.read_csv("titanic_data/Clean_test.csv")
@@ -33,7 +30,11 @@ survival_features = ['Age', 'SibSp', 'Parch', 'Fare', 'female', 'male',
 train_X = train.loc[:, survival_features]
 train_Y = train.loc[:, ["Survived", "PassengerId"]]
 
+
 # ==================== RANDOM FOREST ==================== #
+
+
+# //--  Simple Random Forest Model \\-- #
 
 rfModel_Survived = RandomForestClassifier()
 
