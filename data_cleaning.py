@@ -206,7 +206,7 @@ random_grid = {'n_estimators': n_estimators,
 
 rf_random = RandomizedSearchCV(estimator = rfModel_Age,
                                param_distributions = random_grid,
-                               n_iter = 30,
+                               n_iter = 100,
                                cv = 10,
                                verbose=2,
                                random_state=1234,
@@ -216,11 +216,11 @@ rf_random.fit(titanic_WithAge.loc[:, independent_variables], titanic_WithAge.loc
 
 rf_random.best_params_
 
-Tunned_rfModel_Age = RandomForestRegressor(n_estimators = 1800,
+Tunned_rfModel_Age = RandomForestRegressor(n_estimators = 2000,
                                            min_samples_split=5,
                                            min_samples_leaf=4,
                                            max_features="sqrt",
-                                           max_depth=70,
+                                           max_depth=10,
                                            bootstrap=False,
                                            random_state=1234)
 
@@ -233,7 +233,7 @@ Tunned_age_accuracies = cross_val_score(estimator=Tunned_rfModel_Age,
 print("The new MEAN CV score is", round(Tunned_age_accuracies.mean(), ndigits=2))
 print("The new standard deviation is", round(Tunned_age_accuracies.std(), ndigits=2))
 
-# The MEAN CV score is 0.44
+# The MEAN CV score is 0.45
 # The standard deviation is 0.06
 # The model has increase by 8% and the standard deviation has decreased by 3%
 
