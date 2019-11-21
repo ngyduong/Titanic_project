@@ -10,7 +10,8 @@ import sklearn
 
 from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import cross_val_score, RandomizedSearchCV
+from sklearn.model_selection import cross_val_score
+# from sklearn.model_selection import RandomizedSearchCV
 
 # ==================== DATA MANIPULATION ==================== #
 

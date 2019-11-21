@@ -20,10 +20,15 @@ train = pd.read_csv("titanic_data/Clean_train.csv")
 
 # //--  Create the independent variables  \\-- #
 
-survival_features = ['Age', 'SibSp', 'Parch', 'Fare', 'female', 'male',
-                     'Pclass_1', 'Pclass_2', 'Pclass_3', 'Dr', 'Master',
-                     'Miss', 'Mr', 'Mrs', 'Nobility', 'Officer', 'big_family',
-                     'small_family', 'solo', 'C', 'Q', 'S']
+survival_features = [
+                     'SibSp', 'Parch', 'Fare', 'female', 'male','Pclass_1',
+                     'Pclass_2', 'Pclass_3', 'Dr', 'Master', 'Miss', 'Mr',
+                     'Mrs', 'Nobility', 'Officer', 'big_family','small_family',
+                     'solo', 'C', 'Q', 'S',
+                     'Age_Randomforest',
+                     'Age_SVM',
+                     'Age_replace'
+                     ]
 
 # //--  Split the train dataset into train_x and train_y  \\-- #
 
