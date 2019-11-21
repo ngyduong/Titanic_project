@@ -265,6 +265,8 @@ titanic = titanic_WithAge_SVM.append(titanic_WithoutAge_SVM).sort_values(by=['Pa
 
 # ==================== SEPARATE THE DATA AGAIN AND GET BACK OUR TRAIN/TEST DATASETS ==================== #
 
+Age_compare = titanic.loc[:,["Age", "Age_Randomforest", "Age_SVM", "Age_replace"]]
+
 # I separate the titanic dataframe to their original train/test set
 Clean_train = titanic.loc[titanic.Train_set == 1, :].reset_index(drop=True).drop("Train_set", axis=1)
 Clean_test = titanic.loc[titanic.Train_set == 0, :].reset_index(drop=True).drop(["Train_set"], axis=1)
