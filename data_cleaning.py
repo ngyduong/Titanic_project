@@ -3,7 +3,6 @@
 
 # ==================== PACKAGES ==================== #
 
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -14,7 +13,6 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import cross_val_score, RandomizedSearchCV
 
 # ==================== DATA MANIPULATION ==================== #
-
 
 test = pd.read_csv("titanic_data/test.csv")
 train = pd.read_csv("titanic_data/train.csv")
@@ -27,16 +25,14 @@ test["Train_set"] = 0
 # merge train and test
 titanic = train.append(test, ignore_index=True, sort=False)
 
-
 # ==================== DATA PROCESSING ==================== #
-
 
 # //-- CREATES DUMMY FOR SEX AND PCLASS VARIABLES \\-- #
 
 titanic = pd.concat([titanic, pd.get_dummies(titanic["Sex"])], axis=1)
+
 titanic = pd.concat([titanic, pd.get_dummies(titanic["Pclass"])], axis=1)
 titanic.rename(columns={1:'Pclass_1', 2:'Pclass_2', 3:'Pclass_3'}, inplace=True)
-titanic = titanic.drop(["Sex", "Pclass"], axis=1)
 
 # //-- EXTRACT TITLES FROM NAME VARIABLES \\-- #
 
@@ -44,6 +40,7 @@ comma_split = titanic.Name.str.split(", ", n=1, expand=True)
 point_split = comma_split.iloc[:, 1].str.split('.', n=1, expand=True)
 
 titanic["Title"] = point_split.iloc[:, 0]
+
 # We now have the title of each passenger separated from the variable Name
 # There is in total 18 different title, I will narrow them down to make a generalized title class
 
@@ -62,22 +59,19 @@ def generalized_title(x):
         return("ERROR")
 
 titanic["Title"] = titanic.Title.apply(lambda x: generalized_title(x))
-# We now have narrowed down the 18 different title into only 7 generalized Title
 
+# We now have narrowed down the 18 different title into only 7 generalized Title
 # As we need the data in categorical form we will create dummy variables from Title
+
 titanic = pd.concat([titanic, pd.get_dummies(titanic["Title"])], axis=1)
 
 # //-- CREATES FAMSIZE \\-- #
 
 # We create the variable Famsize as family size, the size of each family on board
-titanic["Famsize"] = titanic['SibSp'] + titanic['Parch'] + 1
 # It is important to add +1 because we have to count the person itself as member of the family
+titanic["Famsize"] = titanic['SibSp'] + titanic['Parch'] + 1
 
-titanic.Famsize.value_counts()
-titanic.Famsize.hist()
-# Given the distribution of the variable we can create categorical variables based on group of family size
-
-# I will therefore replace Famsize by it's categorical variable as :
+# I will  replace Famsize by it's categorical variable as
 # Famsize = solo if the person has no family on board and is travelling alone
 # Famsize = small_family if the person has 2 or 3 members of his family on board (parents/children/siblings/spouses)
 # Famsize = big_family if the person has strictly more than 4 members on his family on board
@@ -93,10 +87,7 @@ def Famsize_categorical(x):
         return("ERROR")
 
 titanic["Famsize"] = titanic.Famsize.apply(lambda x: Famsize_categorical(x))
-
-# As we need the data in categorical form we will create dummy variables from Famsize
 titanic = pd.concat([titanic, pd.get_dummies(titanic["Famsize"])], axis=1)
-titanic = titanic.drop('Famsize', axis=1)
 
 # //-- Dropping variables \\-- #
 
@@ -105,39 +96,26 @@ titanic = titanic.drop('Famsize', axis=1)
 # There doesn't seem to have any valuable information in the variable Ticket so I will drop the variable off as well
 titanic = titanic.drop(columns=["Cabin", 'Ticket'])
 
+# //-- DEALING WITH EMBARKED and FARE MISSING VALUES \\-- #
 
-# ==================== DEALING WITH MISSING VALUES ==================== #
-
-
-titanic.isnull().sum()
-# It seems that there is mostly missing values for the variables Embarked, Age and Fare
-
-# //-- Let's try now to fill the missing values for each variables \\-- #
-
-## Fill NaN in Embarked variable ##
+## Embarked missing values ##
 
 titanic.Embarked.value_counts()
 
 # The big majority of embarkation were from Southampton (S)
 # Since there is only 2 missing values we can either decide to remove them or replace them by the most
-# common embarkation port which is Southampton. I personally prefer the latter solution.
+# common embarkation port which is Southampton. I personally prefer the latter solution
 
-# let's replace the missing embarkation port by Southampton (S)
 titanic.Embarked.fillna("S", inplace=True)
-
-# Now that there is no more missing value we can create dummy variables for Embarked
 titanic = pd.concat([titanic, pd.get_dummies(titanic["Embarked"])], axis=1)
-titanic = titanic.drop("Embarked", axis=1)
 
-## Fill NaN in Fare variable ##
+## Fare missing values ##
 
-titanic.Fare.fillna(titanic.Fare.median(), inplace=True)
 # As there is only 1 missing value for Fare we can replace the missing value by it's median
+titanic.Fare.fillna(titanic.Fare.median(), inplace=True)
 
+# ==================== DEALING WITH AGE VARIABLE ==================== #
 
-# ==================== Fill NaN in Age variable  ==================== #
-
-# Let's have a first statistical analysis
 titanic.Age.describe()
 # The mean and the median are close to each other with 29.9 and 28 respectively
 
@@ -149,25 +127,22 @@ titanic["Age_Randomforest"] = titanic.Age.copy() #Missing Age predicted by rando
 titanic["Age_SVM"] = titanic.Age.copy() #Missing Age predicted by SVM
 titanic["Age_replace"] = titanic.Age.copy() #Missing Age replaced by median depending on title
 
-# We will keep a variable Age for each solution and see later which one is better
-
 # //-- Replacing Age depending on title \\-- #
 
 Age_by_title = pd.DataFrame({'mean_age': titanic.groupby('Title').mean().loc[:, "Age"],
                              'median_age': titanic.groupby('Title').median().loc[:, "Age"],
                              'count': titanic.Title.value_counts(),
                              'age_missing': titanic.Age.isnull().groupby(titanic['Title']).sum()})
-# We now have the mean and the median age for each title as well as the number of missing age for each title
 
+# We now have the mean and the median age for each title as well as the number of missing age for each title
 # We will now replace the missing age by the median age depending on the title
+
 for index, i in enumerate(titanic["Age_replace"]):
     if pd.isnull(i) == False:
         titanic.loc[index, "Age_replace"] = i
     else:
         i_title = titanic.loc[index, "Title"]
         titanic.loc[index, 'Age_replace'] = Age_by_title.loc[i_title, "median_age"]
-
-titanic=titanic.drop('Title', axis=1)
 
 # //-- Random forest for Age \\-- #
 
@@ -190,10 +165,18 @@ age_accuracies = cross_val_score(estimator=rfModel_Age,
 
 print("The MEAN CV score is", round(age_accuracies.mean(), ndigits=2))
 print("The standard deviation is", round(age_accuracies.std(), ndigits=2))
-
 # The MEAN CV score is 0.36
 # The standard deviation is 0.08
 
+# Fit the tunned model in the dataset
+
+rfModel_Age.fit(titanic_WithAge.loc[:, independent_variables], titanic_WithAge.loc[:, 'Age_Randomforest'])
+
+titanic_WithoutAge.loc[:, 'Age_Randomforest'] = rfModel_Age.predict(X = titanic_WithoutAge.loc[:, independent_variables]).astype(int)
+titanic = titanic_WithAge.append(titanic_WithoutAge).sort_values(by=['PassengerId']).reset_index(drop=True)
+
+
+# =======================================================================================
 # # //--  Hyperparameter tuning for Age Random forest  \\-- #
 #
 # # Number of trees in random forest
@@ -249,14 +232,8 @@ print("The standard deviation is", round(age_accuracies.std(), ndigits=2))
 # # The MEAN CV score is 0.45
 # # The standard deviation is 0.06
 # # The model has increase by 8% and the standard deviation has decreased by 3%
+# =======================================================================================
 
-# Fit the tunned model in the dataset
-
-rfModel_Age.fit(titanic_WithAge.loc[:, independent_variables], titanic_WithAge.loc[:, 'Age_Randomforest'])
-
-titanic_WithoutAge.loc[:, 'Age_Randomforest'] = rfModel_Age.predict(X = titanic_WithoutAge.loc[:, independent_variables]).astype(int)
-
-titanic = titanic_WithAge.append(titanic_WithoutAge).sort_values(by=['PassengerId']).reset_index(drop=True)
 
 # //-- SVM for Age \\-- #
 
@@ -271,21 +248,19 @@ titanic_WithoutAge_SVM = titanic[pd.isnull(titanic['Age'])]
 SVM_reg = SVR(kernel="linear")
 
 age_accuracies_SVM = cross_val_score(estimator=SVM_reg,
-                                 X=titanic_WithAge_SVM.loc[:, independent_variables],
-                                 y=titanic_WithAge_SVM.loc[:, 'Age_SVM'],
-                                 cv=10,
-                                 n_jobs=2)
+                                     X=titanic_WithAge_SVM.loc[:, independent_variables],
+                                     y=titanic_WithAge_SVM.loc[:, 'Age_SVM'],
+                                     cv=10,
+                                     n_jobs=2)
 
 print("The MEAN CV score is", round(age_accuracies_SVM.mean(), ndigits=2))
 print("The standard deviation is", round(age_accuracies_SVM.std(), ndigits=2))
-
 # The MEAN CV score is 0.39
 # The standard deviation is 0.06
 
 SVM_reg.fit(titanic_WithAge_SVM.loc[:, independent_variables], titanic_WithAge_SVM.loc[:, 'Age_SVM'])
 
 titanic_WithoutAge_SVM.loc[:, 'Age_SVM'] = SVM_reg.predict(X = titanic_WithoutAge_SVM.loc[:, independent_variables]).astype(int)
-
 titanic = titanic_WithAge_SVM.append(titanic_WithoutAge_SVM).sort_values(by=['PassengerId']).reset_index(drop=True)
 
 # ==================== SEPARATE THE DATA AGAIN AND GET BACK OUR TRAIN/TEST DATASETS ==================== #
