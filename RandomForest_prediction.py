@@ -3,149 +3,82 @@
 
 # ==================== PACKAGES ==================== #
 
-
 import pandas as pd
 import numpy as np
 import sklearn
-
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import cross_val_score, RandomizedSearchCV, GridSearchCV
-
+from sklearn.model_selection import cross_val_score
 
 # ==================== DATA MANIPULATION ==================== #
 
-
-test = pd.read_csv("titanic_data/Clean_test.csv")
-train = pd.read_csv("titanic_data/Clean_train.csv")
+test = pd.read_csv("titanic_data/clean_data/Clean_test.csv")
+train = pd.read_csv("titanic_data/clean_data/Clean_train.csv")
 
 # //--  Create the independent variables  \\-- #
 
-survival_features = [
-                     'SibSp', 'Parch', 'Fare', 'female', 'male','Pclass_1',
-                     'Pclass_2', 'Pclass_3', 'Dr', 'Master', 'Miss', 'Mr',
-                     'Mrs', 'Nobility', 'Officer', 'big_family','small_family',
-                     'solo', 'C', 'Q', 'S',
-                     'Age_Randomforest',
-                     'Age_SVM',
-                     'Age_replace'
-                     ]
+survival_features_rf = ['SibSp', 'Parch', 'Fare', 'female', 'male','Pclass_1', 'Pclass_2', 'Pclass_3',
+                        'Dr', 'Master', 'Miss', 'Mr', 'Mrs', 'Nobility', 'Officer', 'big_family',
+                        'small_family', 'solo', 'C', 'Q', 'S', 'Age_Randomforest']
 
-# //--  Split the train dataset into train_x and train_y  \\-- #
+survival_features_svm = ['SibSp', 'Parch', 'Fare', 'female', 'male','Pclass_1', 'Pclass_2', 'Pclass_3',
+                        'Dr', 'Master', 'Miss', 'Mr', 'Mrs', 'Nobility', 'Officer', 'big_family',
+                        'small_family', 'solo', 'C', 'Q', 'S', 'Age_SVM']
 
-train_X = train.loc[:, survival_features]
-train_Y = train.loc[:, ["Survived", "PassengerId"]]
-
+survival_features_replace = ['SibSp', 'Parch', 'Fare', 'female', 'male','Pclass_1', 'Pclass_2', 'Pclass_3',
+                        'Dr', 'Master', 'Miss', 'Mr', 'Mrs', 'Nobility', 'Officer', 'big_family',
+                        'small_family', 'solo', 'C', 'Q', 'S', 'Age_replace']
 
 # ==================== RANDOM FOREST ==================== #
 
-
-# //--  Simple Random Forest Model \\-- #
-
 rfModel_Survived = RandomForestClassifier()
 
-survived_accuracies = cross_val_score(estimator=rfModel_Survived,
-                                      X=train_X.loc[:, survival_features],
-                                      y=train_Y.loc[:, 'Survived'],
-                                      cv=10,
-                                      n_jobs=2)
+# //--  CVS with Age predicted by random forest  \\-- #
 
-print("The MEAN CV score is", round(survived_accuracies.mean(), ndigits=2))
-print("The standard deviation is", round(survived_accuracies.std(), ndigits=2))
+age_rf = cross_val_score(estimator=rfModel_Survived,
+                         X=train.loc[:, survival_features_rf],
+                         y=train.loc[:, 'Survived'],
+                         cv=10,
+                         n_jobs=2)
 
+print("The MEAN CV score is", round(age_rf.mean(), ndigits=2))
+print("The standard deviation is", round(age_rf.std(), ndigits=2))
 # The MEAN CV score is 0.8
 # The standard deviation is 0.05
 
-# //--  Hyperparameter tuning RandomSearch \\-- #
+# //--  CVS with Age predicted by SVM  \\-- #
 
-# Number of trees in random forest
-n_estimators = [int(x) for x in np.linspace(start = 200, stop = 2000, num = 10)]
-# Number of features to consider at every split
-max_features = ['auto', 'sqrt']
-# Maximum number of levels in tree
-max_depth = [int(x) for x in np.linspace(10, 110, num = 11)]
-max_depth.append(None)
-# Minimum number of samples required to split a node
-min_samples_split = [2, 5, 10]
-# Minimum number of samples required at each leaf node
-min_samples_leaf = [1, 2, 4]
-# Method of selecting samples for training each tree
-bootstrap = [True, False]
+age_svm = cross_val_score(estimator=rfModel_Survived,
+                          X=train.loc[:, survival_features_svm],
+                          y=train.loc[:, 'Survived'],
+                          cv=10,
+                          n_jobs=2)
 
-random_grid = {'n_estimators': n_estimators,
-               'max_features': max_features,
-               'max_depth': max_depth,
-               'min_samples_split': min_samples_split,
-               'min_samples_leaf': min_samples_leaf,
-               'bootstrap': bootstrap}
+print("The MEAN CV score is", round(age_svm.mean(), ndigits=2))
+print("The standard deviation is", round(age_svm.std(), ndigits=2))
+# The MEAN CV score is 0.8
+# The standard deviation is 0.05
 
-rf_random = RandomizedSearchCV(estimator = rfModel_Survived,
-                               param_distributions = random_grid,
-                               n_iter = 100,
-                               cv = 10,
-                               verbose=2,
-                               random_state=1234,
-                               n_jobs = 3)
+# //--  CVS with Age replaced by median depending on title  \\-- #
 
-rf_random.fit(train_X.loc[:, survival_features], train_Y.loc[:, 'Survived'])
+age_replace = cross_val_score(estimator=rfModel_Survived,
+                          X=train.loc[:, survival_features_replace],
+                          y=train.loc[:, 'Survived'],
+                          cv=10,
+                          n_jobs=2)
 
-rf_random.best_params_
+print("The MEAN CV score is", round(age_replace.mean(), ndigits=2))
+print("The standard deviation is", round(age_replace.std(), ndigits=2))
+# The MEAN CV score is 0.81
+# The standard deviation is 0.03
 
-Tunned_rfModel_Survived = RandomForestClassifier(n_estimators = 200,
-                                                 min_samples_split=2,
-                                                 min_samples_leaf=4,
-                                                 max_features="sqrt",
-                                                 max_depth=40,
-                                                 bootstrap=True,
-                                                 random_state=1234)
+# The one with the best accuracy and least standard deviation is the one in which we replace
+# the Age with the median age depending on the title we will therefore fit the model with this one
 
-survived_accuracies_RS = cross_val_score(estimator=Tunned_rfModel_Survived,
-                                         X=train_X.loc[:, survival_features],
-                                         y=train_Y.loc[:, 'Survived'],
-                                         cv=10,
-                                         n_jobs=2)
 
-print("The MEAN CV score is", round(survived_accuracies_RS.mean(), ndigits=2))
-print("The standard deviation is", round(survived_accuracies_RS.std(), ndigits=2))
+rfModel_Survived.fit(train.loc[:, survival_features_replace], train.loc[:, 'Survived'])
 
-# The MEAN CV score is 0.84
-# The standard deviation is 0.04
-# The mean accuracy has improved by 3% and the  standard deviation stayed the same
-
-# # //--  Hyperparameter tuning Grid Search \\-- #
-#
-# # Create the parameter grid based on the results of random search
-# param_grid = {'bootstrap': [True],
-#               'max_depth': [40, 60, 80, 100],
-#               'max_features': ["sqrt", "auto"],
-#               'min_samples_split': [2, 3, 5],
-#               'min_samples_leaf': [4, 10, 12],
-#               'n_estimators': [200, 300, 1000]}
-#
-# grid_search = GridSearchCV(estimator = rfModel_Survived,
-#                            param_grid = param_grid,
-#                            cv = 3,
-#                            n_jobs = 3,
-#                            verbose = 2)
-#
-# grid_search.fit(train_X.loc[:, survival_features], train_Y.loc[:, 'Survived'])
-#
-# print("Best score: {}".format(grid_search.best_score_))
-# print("Optimal params: {}".format(grid_search.best_estimator_))
-
-# //--  Fit the model to the test set \\-- #
-
-# ResearchGrid
-Tunned_rfModel_Survived.fit(train.loc[:, survival_features], train.loc[:, 'Survived'])
-test.loc[:, "Survived"] = Tunned_rfModel_Survived.predict(test.loc[:, survival_features]).astype(int)
-Random_forest_test_RandomSearch = test.loc[:, ["PassengerId", "Survived"]]
-
-# Re-importe test dataset
-test = pd.read_csv("titanic_data/Clean_test.csv")
-
-# # ResearchGrid
-# test.loc[:, "Survived"] = grid_search.predict(test.loc[:, survival_features]).astype(int)
-# Random_forest_test_GridSearch = test.loc[:, ["PassengerId", "Survived"]]
+test.loc[:, "Survived"] = rfModel_Survived.predict(test.loc[:, survival_features_replace]).astype(int)
+rf_submission = test.loc[:, ["PassengerId", "Survived"]]
 
 # Export to CSV
-Random_forest_test_RandomSearch.to_csv("titanic_submissions/Random_forest_test.csv", index=False)
-# Random_forest_test_GridSearch.to_csv("titanic_submissions/Random_forest_test.csv", index=False)
+rf_submission.to_csv("titanic_submissions/Random_fores.csv", index=False)
