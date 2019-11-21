@@ -9,7 +9,7 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 899,,2,"Caldwell, Mr. Albert Francis",male,26.0,1,1,29.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,26.0,26.0,26.0
 900,,3,"Abrahim, Mrs. Joseph (Sophie Halaut Easu)",female,18.0,0,0,7.2292,C,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,1,0,0,18.0,18.0,18.0
 901,,3,"Davies, Mr. John Samuel",male,21.0,2,0,24.15,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,21.0,21.0,21.0
-902,,3,"Ilieff, Mr. Ylio",male,,0,0,7.8958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,26.0,27.0,29.0
+902,,3,"Ilieff, Mr. Ylio",male,,0,0,7.8958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,27.0,27.0,29.0
 903,,1,"Jones, Mr. Charles Cresson",male,46.0,0,0,26.0,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,46.0,46.0,46.0
 904,,1,"Snyder, Mrs. John Pillsbury (Nelle Stevenson)",female,23.0,1,0,82.2667,S,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,B,0,0,1,23.0,23.0,23.0
 905,,2,"Howard, Mr. Benjamin",male,63.0,1,0,26.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,63.0,63.0,63.0
@@ -21,24 +21,24 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 911,,3,"Assaf Khalil, Mrs. Mariana (Miriam"")""",female,45.0,0,0,7.225,C,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,1,0,0,45.0,45.0,45.0
 912,,1,"Rothschild, Mr. Martin",male,55.0,1,0,59.4,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,55.0,55.0,55.0
 913,,3,"Olsen, Master. Artur Karl",male,9.0,0,1,3.1708,S,0,1,0,0,1,Master,0,1,0,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,9.0,9.0,9.0
-914,,1,"Flegenheim, Mrs. Alfred (Antoinette)",female,,0,0,31.6833,S,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,0,0,1,52.0,46.0,35.0
+914,,1,"Flegenheim, Mrs. Alfred (Antoinette)",female,,0,0,31.6833,S,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,0,0,1,51.0,46.0,35.0
 915,,1,"Williams, Mr. Richard Norris II",male,21.0,0,1,61.3792,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,21.0,21.0,21.0
 916,,1,"Ryerson, Mrs. Arthur Larned (Emily Maria Borie)",female,48.0,1,3,262.375,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,big_family,1,0,0,B,1,0,0,48.0,48.0,48.0
 917,,3,"Robins, Mr. Alexander A",male,50.0,1,0,14.5,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,50.0,50.0,50.0
 918,,1,"Ostby, Miss. Helene Ragnhild",female,22.0,0,1,61.9792,C,1,0,1,0,0,Miss,0,0,1,0,0,0,0,small_family,0,1,0,B,1,0,0,22.0,22.0,22.0
 919,,3,"Daher, Mr. Shedid",male,22.5,0,0,7.225,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,22.5,22.5,22.5
 920,,1,"Brady, Mr. John Bertram",male,41.0,0,0,30.5,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,A,0,0,1,41.0,41.0,41.0
-921,,3,"Samaan, Mr. Elias",male,,2,0,21.6792,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,23.0,22.0,29.0
+921,,3,"Samaan, Mr. Elias",male,,2,0,21.6792,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,24.0,22.0,29.0
 922,,2,"Louch, Mr. Charles Alexander",male,50.0,1,0,26.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,50.0,50.0,50.0
 923,,2,"Jefferys, Mr. Clifford Thomas",male,24.0,2,0,31.5,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,24.0,24.0,24.0
 924,,3,"Dean, Mrs. Bertram (Eva Georgetta Light)",female,33.0,1,2,20.575,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,big_family,1,0,0,Unknown,0,0,1,33.0,33.0,33.0
-925,,3,"Johnston, Mrs. Andrew G (Elizabeth Lily"" Watson)""",female,,1,2,23.45,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,big_family,1,0,0,Unknown,0,0,1,38.0,26.0,35.0
+925,,3,"Johnston, Mrs. Andrew G (Elizabeth Lily"" Watson)""",female,,1,2,23.45,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,big_family,1,0,0,Unknown,0,0,1,31.0,26.0,35.0
 926,,1,"Mock, Mr. Philipp Edmund",male,30.0,1,0,57.75,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,C,1,0,0,30.0,30.0,30.0
 927,,3,"Katavelas, Mr. Vassilios (Catavelas Vassilios"")""",male,18.5,0,0,7.2292,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,18.5,18.5,18.5
 928,,3,"Roth, Miss. Sarah A",female,,0,0,8.05,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,20.0,18.0,22.0
 929,,3,"Cacic, Miss. Manda",female,21.0,0,0,8.6625,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,21.0,21.0,21.0
 930,,3,"Sap, Mr. Julius",male,25.0,0,0,9.5,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,25.0,25.0,25.0
-931,,3,"Hee, Mr. Ling",male,,0,0,56.4958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,27.0,29.0
+931,,3,"Hee, Mr. Ling",male,,0,0,56.4958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,28.0,27.0,29.0
 932,,3,"Karun, Mr. Franz",male,39.0,0,1,13.4167,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,39.0,39.0,39.0
 933,,1,"Franklin, Mr. Thomas Parham",male,,0,0,26.55,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,D,0,0,1,47.0,41.0,29.0
 934,,3,"Goldsmith, Mr. Nathan",male,41.0,0,0,7.85,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,41.0,41.0,41.0
@@ -46,14 +46,14 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 936,,1,"Kimball, Mrs. Edwin Nelson Jr (Gertrude Parsons)",female,45.0,1,0,52.5542,S,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,D,0,0,1,45.0,45.0,45.0
 937,,3,"Peltomaki, Mr. Nikolai Johannes",male,25.0,0,0,7.925,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,25.0,25.0,25.0
 938,,1,"Chevre, Mr. Paul Romaine",male,45.0,0,0,29.7,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,A,1,0,0,45.0,45.0,45.0
-939,,3,"Shaughnessy, Mr. Patrick",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,43.0,30.0,29.0
+939,,3,"Shaughnessy, Mr. Patrick",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,46.0,30.0,29.0
 940,,1,"Bucknell, Mrs. William Robert (Emma Eliza Ward)",female,60.0,0,0,76.2917,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,solo,0,0,1,D,1,0,0,60.0,60.0,60.0
 941,,3,"Coutts, Mrs. William (Winnie Minnie"" Treanor)""",female,36.0,0,2,15.9,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,36.0,36.0,36.0
 942,,1,"Smith, Mr. Lucien Philip",male,24.0,1,0,60.0,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,C,0,0,1,24.0,24.0,24.0
 943,,2,"Pulbaum, Mr. Franz",male,27.0,0,0,15.0333,C,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,27.0,27.0,27.0
 944,,2,"Hocking, Miss. Ellen Nellie""""",female,20.0,2,1,23.0,S,1,0,0,1,0,Miss,0,0,1,0,0,0,0,big_family,1,0,0,Unknown,0,0,1,20.0,20.0,20.0
 945,,1,"Fortune, Miss. Ethel Flora",female,28.0,3,2,263.0,S,1,0,1,0,0,Miss,0,0,1,0,0,0,0,big_family,1,0,0,C,0,0,1,28.0,28.0,28.0
-946,,2,"Mangiavacchi, Mr. Serafino Emilio",male,,0,0,15.5792,C,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,28.0,28.0,29.0
+946,,2,"Mangiavacchi, Mr. Serafino Emilio",male,,0,0,15.5792,C,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,29.0,28.0,29.0
 947,,3,"Rice, Master. Albert",male,10.0,4,1,29.125,Q,0,1,0,0,1,Master,0,1,0,0,0,0,0,big_family,1,0,0,Unknown,0,1,0,10.0,10.0,10.0
 948,,3,"Cor, Mr. Bartol",male,35.0,0,0,7.8958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,35.0,35.0,35.0
 949,,3,"Abelseth, Mr. Olaus Jorgensen",male,25.0,0,0,7.65,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,FG,0,0,1,25.0,25.0,25.0
@@ -75,24 +75,24 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 965,,1,"Ovies y Rodriguez, Mr. Servando",male,28.5,0,0,27.7208,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,D,1,0,0,28.5,28.5,28.5
 966,,1,"Geiger, Miss. Amalie",female,35.0,0,0,211.5,C,1,0,1,0,0,Miss,0,0,1,0,0,0,0,solo,0,0,1,C,1,0,0,35.0,35.0,35.0
 967,,1,"Keeping, Mr. Edwin",male,32.5,0,0,211.5,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,C,1,0,0,32.5,32.5,32.5
-968,,3,"Miles, Mr. Frank",male,,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,27.0,29.0
+968,,3,"Miles, Mr. Frank",male,,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,29.0,27.0,29.0
 969,,1,"Cornell, Mrs. Robert Clifford (Malvina Helen Lamson)",female,55.0,2,0,25.7,S,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,C,0,0,1,55.0,55.0,55.0
 970,,2,"Aldworth, Mr. Charles Augustus",male,30.0,0,0,13.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,30.0,30.0
 971,,3,"Doyle, Miss. Elizabeth",female,24.0,0,0,7.75,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,24.0,24.0,24.0
 972,,3,"Boulos, Master. Akar",male,6.0,1,1,15.2458,C,0,1,0,0,1,Master,0,1,0,0,0,0,0,small_family,0,1,0,Unknown,1,0,0,6.0,6.0,6.0
 973,,1,"Straus, Mr. Isidor",male,67.0,1,0,221.7792,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,C,0,0,1,67.0,67.0,67.0
 974,,1,"Case, Mr. Howard Brown",male,49.0,0,0,26.0,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,49.0,49.0,49.0
-975,,3,"Demetri, Mr. Marinko",male,,0,0,7.8958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,26.0,27.0,29.0
-976,,2,"Lamb, Mr. John Joseph",male,,0,0,10.7083,Q,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,40.0,33.0,29.0
-977,,3,"Khalil, Mr. Betros",male,,1,0,14.4542,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,22.0,22.0,29.0
+975,,3,"Demetri, Mr. Marinko",male,,0,0,7.8958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,27.0,27.0,29.0
+976,,2,"Lamb, Mr. John Joseph",male,,0,0,10.7083,Q,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,55.0,33.0,29.0
+977,,3,"Khalil, Mr. Betros",male,,1,0,14.4542,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,27.0,22.0,29.0
 978,,3,"Barry, Miss. Julia",female,27.0,0,0,7.8792,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,27.0,27.0,27.0
 979,,3,"Badman, Miss. Emily Louisa",female,18.0,0,0,8.05,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,18.0,18.0,18.0
-980,,3,"O'Donoghue, Ms. Bridget",female,,0,0,7.75,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,26.0,22.0,22.0
+980,,3,"O'Donoghue, Ms. Bridget",female,,0,0,7.75,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,25.0,22.0,22.0
 981,,2,"Wells, Master. Ralph Lester",male,2.0,1,1,23.0,S,0,1,0,1,0,Master,0,1,0,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,2.0,2.0,2.0
 982,,3,"Dyker, Mrs. Adolf Fredrik (Anna Elisabeth Judith Andersson)",female,22.0,1,0,13.9,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,22.0,22.0,22.0
-983,,3,"Pedersen, Mr. Olaf",male,,0,0,7.775,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,27.0,27.0,29.0
+983,,3,"Pedersen, Mr. Olaf",male,,0,0,7.775,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,25.0,27.0,29.0
 984,,1,"Davidson, Mrs. Thornton (Orian Hays)",female,27.0,1,2,52.0,S,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,big_family,1,0,0,B,0,0,1,27.0,27.0,27.0
-985,,3,"Guest, Mr. Robert",male,,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,27.0,29.0
+985,,3,"Guest, Mr. Robert",male,,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,29.0,27.0,29.0
 986,,1,"Birnbaum, Mr. Jakob",male,25.0,0,0,26.0,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,25.0,25.0,25.0
 987,,3,"Tenglin, Mr. Gunnar Isidor",male,25.0,0,0,7.7958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,25.0,25.0,25.0
 988,,1,"Cavendish, Mrs. Tyrell William (Julia Florence Siegel)",female,76.0,1,0,78.85,S,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,C,0,0,1,76.0,76.0,76.0
@@ -101,38 +101,38 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 991,,3,"Nancarrow, Mr. William Henry",male,33.0,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,33.0,33.0,33.0
 992,,1,"Stengel, Mrs. Charles Emil Henry (Annie May Morris)",female,43.0,1,0,55.4417,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,C,1,0,0,43.0,43.0,43.0
 993,,2,"Weisz, Mr. Leopold",male,27.0,1,0,26.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,27.0,27.0,27.0
-994,,3,"Foley, Mr. William",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,43.0,30.0,29.0
+994,,3,"Foley, Mr. William",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,46.0,30.0,29.0
 995,,3,"Johansson Palmquist, Mr. Oskar Leander",male,26.0,0,0,7.775,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,26.0,26.0,26.0
 996,,3,"Thomas, Mrs. Alexander (Thamine Thelma"")""",female,16.0,1,1,8.5167,C,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,1,0,0,16.0,16.0,16.0
 997,,3,"Holthen, Mr. Johan Martin",male,28.0,0,0,22.525,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,28.0,28.0,28.0
 998,,3,"Buckley, Mr. Daniel",male,21.0,0,0,7.8208,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,21.0,21.0,21.0
-999,,3,"Ryan, Mr. Edward",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,43.0,30.0,29.0
-1000,,3,"Willer, Mr. Aaron (Abi Weller"")""",male,,0,0,8.7125,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,24.0,27.0,29.0
+999,,3,"Ryan, Mr. Edward",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,46.0,30.0,29.0
+1000,,3,"Willer, Mr. Aaron (Abi Weller"")""",male,,0,0,8.7125,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,26.0,27.0,29.0
 1001,,2,"Swane, Mr. George",male,18.5,0,0,13.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,F,0,0,1,18.5,18.5,18.5
 1002,,2,"Stanton, Mr. Samuel Ward",male,41.0,0,0,15.0458,C,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,41.0,41.0,41.0
-1003,,3,"Shine, Miss. Ellen Natalia",female,,0,0,7.7792,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,23.0,22.0,22.0
+1003,,3,"Shine, Miss. Ellen Natalia",female,,0,0,7.7792,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,22.0,22.0,22.0
 1004,,1,"Evans, Miss. Edith Corse",female,36.0,0,0,31.6792,C,1,0,1,0,0,Miss,0,0,1,0,0,0,0,solo,0,0,1,A,1,0,0,36.0,36.0,36.0
 1005,,3,"Buckley, Miss. Katherine",female,18.5,0,0,7.2833,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,18.5,18.5,18.5
 1006,,1,"Straus, Mrs. Isidor (Rosalie Ida Blun)",female,63.0,1,0,221.7792,S,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,C,0,0,1,63.0,63.0,63.0
 1007,,3,"Chronopoulos, Mr. Demetrios",male,18.0,1,0,14.4542,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,18.0,18.0,18.0
-1008,,3,"Thomas, Mr. John",male,,0,0,6.4375,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,34.0,26.0,29.0
+1008,,3,"Thomas, Mr. John",male,,0,0,6.4375,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,35.0,26.0,29.0
 1009,,3,"Sandstrom, Miss. Beatrice Irene",female,1.0,1,1,16.7,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,small_family,0,1,0,G,0,0,1,1.0,1.0,1.0
 1010,,1,"Beattie, Mr. Thomson",male,36.0,0,0,75.2417,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,C,1,0,0,36.0,36.0,36.0
 1011,,2,"Chapman, Mrs. John Henry (Sara Elizabeth Lawry)",female,29.0,1,0,26.0,S,1,0,0,1,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,29.0,29.0,29.0
 1012,,2,"Watt, Miss. Bertha J",female,12.0,0,0,15.75,S,1,0,0,1,0,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,12.0,12.0,12.0
-1013,,3,"Kiernan, Mr. John",male,,1,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,1,0,35.0,27.0,29.0
+1013,,3,"Kiernan, Mr. John",male,,1,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,1,0,43.0,27.0,29.0
 1014,,1,"Schabert, Mrs. Paul (Emma Mock)",female,35.0,1,0,57.75,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,C,1,0,0,35.0,35.0,35.0
 1015,,3,"Carver, Mr. Alfred John",male,28.0,0,0,7.25,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,28.0,28.0,28.0
-1016,,3,"Kennedy, Mr. John",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,43.0,30.0,29.0
+1016,,3,"Kennedy, Mr. John",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,46.0,30.0,29.0
 1017,,3,"Cribb, Miss. Laura Alice",female,17.0,0,1,16.1,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,17.0,17.0,17.0
 1018,,3,"Brobeck, Mr. Karl Rudolf",male,22.0,0,0,7.7958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,22.0,22.0,22.0
-1019,,3,"McCoy, Miss. Alicia",female,,2,0,23.25,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,0,1,0,20.0,18.0,22.0
+1019,,3,"McCoy, Miss. Alicia",female,,2,0,23.25,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,0,1,0,16.0,18.0,22.0
 1020,,2,"Bowenur, Mr. Solomon",male,42.0,0,0,13.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,42.0,42.0,42.0
 1021,,3,"Petersen, Mr. Marius",male,24.0,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,24.0,24.0,24.0
 1022,,3,"Spinner, Mr. Henry John",male,32.0,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,32.0,32.0,32.0
 1023,,1,"Gracie, Col. Archibald IV",male,53.0,0,0,28.5,C,0,1,1,0,0,Officer,0,0,0,0,0,0,1,solo,0,0,1,C,1,0,0,53.0,53.0,53.0
-1024,,3,"Lefebre, Mrs. Frank (Frances)",female,,0,4,25.4667,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,big_family,1,0,0,Unknown,0,0,1,39.0,27.0,35.0
-1025,,3,"Thomas, Mr. Charles P",male,,1,0,6.4375,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,26.0,22.0,29.0
+1024,,3,"Lefebre, Mrs. Frank (Frances)",female,,0,4,25.4667,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,big_family,1,0,0,Unknown,0,0,1,36.0,27.0,35.0
+1025,,3,"Thomas, Mr. Charles P",male,,1,0,6.4375,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,27.0,22.0,29.0
 1026,,3,"Dintcheff, Mr. Valtcho",male,43.0,0,0,7.8958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,43.0,43.0,43.0
 1027,,3,"Carlsson, Mr. Carl Robert",male,24.0,0,0,7.8542,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,24.0,24.0,24.0
 1028,,3,"Zakarian, Mr. Mapriededer",male,26.5,0,0,7.225,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,26.5,26.5,26.5
@@ -145,12 +145,12 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 1035,,2,"Beauchamp, Mr. Henry James",male,28.0,0,0,26.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,28.0,28.0,28.0
 1036,,1,"Lindeberg-Lind, Mr. Erik Gustaf (Mr Edward Lingrey"")""",male,42.0,0,0,26.55,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,42.0,42.0,42.0
 1037,,3,"Vander Planke, Mr. Julius",male,31.0,3,0,18.0,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,big_family,1,0,0,Unknown,0,0,1,31.0,31.0,31.0
-1038,,1,"Hilliard, Mr. Herbert Henry",male,,0,0,51.8625,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,E,0,0,1,45.0,41.0,29.0
+1038,,1,"Hilliard, Mr. Herbert Henry",male,,0,0,51.8625,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,E,0,0,1,47.0,41.0,29.0
 1039,,3,"Davies, Mr. Evan",male,22.0,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,22.0,22.0,22.0
 1040,,1,"Crafton, Mr. John Bertram",male,,0,0,26.55,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,47.0,41.0,29.0
 1041,,2,"Lahtinen, Rev. William",male,30.0,1,1,26.0,S,0,1,0,1,0,Officer,0,0,0,0,0,0,1,small_family,0,1,0,Unknown,0,0,1,30.0,30.0,30.0
 1042,,1,"Earnshaw, Mrs. Boulton (Olive Potter)",female,23.0,0,1,83.1583,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,C,1,0,0,23.0,23.0,23.0
-1043,,3,"Matinoff, Mr. Nicola",male,,0,0,7.8958,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,32.0,26.0,29.0
+1043,,3,"Matinoff, Mr. Nicola",male,,0,0,7.8958,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,31.0,26.0,29.0
 1044,,3,"Storey, Mr. Thomas",male,60.5,0,0,14.4542,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,60.5,60.5,60.5
 1045,,3,"Klasen, Mrs. (Hulda Kristina Eugenia Lofqvist)",female,36.0,0,2,12.1833,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,36.0,36.0,36.0
 1046,,3,"Asplund, Master. Filip Oscar",male,13.0,4,2,31.3875,S,0,1,0,0,1,Master,0,1,0,0,0,0,0,big_family,1,0,0,Unknown,0,0,1,13.0,13.0,13.0
@@ -159,20 +159,20 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 1049,,3,"Lundin, Miss. Olga Elida",female,23.0,0,0,7.8542,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,23.0,23.0,23.0
 1050,,1,"Borebank, Mr. John James",male,42.0,0,0,26.55,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,D,0,0,1,42.0,42.0,42.0
 1051,,3,"Peacock, Mrs. Benjamin (Edith Nile)",female,26.0,0,2,13.775,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,26.0,26.0,26.0
-1052,,3,"Smyth, Miss. Julia",female,,0,0,7.7333,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,19.0,22.0,22.0
+1052,,3,"Smyth, Miss. Julia",female,,0,0,7.7333,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,17.0,22.0,22.0
 1053,,3,"Touma, Master. Georges Youssef",male,7.0,1,1,15.2458,C,0,1,0,0,1,Master,0,1,0,0,0,0,0,small_family,0,1,0,Unknown,1,0,0,7.0,7.0,7.0
 1054,,2,"Wright, Miss. Marion",female,26.0,0,0,13.5,S,1,0,0,1,0,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,26.0,26.0,26.0
-1055,,3,"Pearce, Mr. Ernest",male,,0,0,7.0,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,27.0,29.0
+1055,,3,"Pearce, Mr. Ernest",male,,0,0,7.0,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,37.0,27.0,29.0
 1056,,2,"Peruschitz, Rev. Joseph Maria",male,41.0,0,0,13.0,S,0,1,0,1,0,Officer,0,0,0,0,0,0,1,solo,0,0,1,Unknown,0,0,1,41.0,41.0,41.0
 1057,,3,"Kink-Heilmann, Mrs. Anton (Luise Heilmann)",female,26.0,1,1,22.025,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,26.0,26.0,26.0
 1058,,1,"Brandeis, Mr. Emil",male,48.0,0,0,50.4958,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,B,1,0,0,48.0,48.0,48.0
 1059,,3,"Ford, Mr. Edward Watson",male,18.0,2,2,34.375,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,big_family,1,0,0,Unknown,0,0,1,18.0,18.0,18.0
-1060,,1,"Cassebeer, Mrs. Henry Arthur Jr (Eleanor Genevieve Fosdick)",female,,0,0,27.7208,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,1,0,0,50.0,45.0,35.0
+1060,,1,"Cassebeer, Mrs. Henry Arthur Jr (Eleanor Genevieve Fosdick)",female,,0,0,27.7208,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,1,0,0,47.0,45.0,35.0
 1061,,3,"Hellstrom, Miss. Hilda Maria",female,22.0,0,0,8.9625,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,22.0,22.0,22.0
-1062,,3,"Lithman, Mr. Simon",male,,0,0,7.55,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,35.0,27.0,29.0
+1062,,3,"Lithman, Mr. Simon",male,,0,0,7.55,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,27.0,29.0
 1063,,3,"Zakarian, Mr. Ortin",male,27.0,0,0,7.225,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,27.0,27.0,27.0
 1064,,3,"Dyker, Mr. Adolf Fredrik",male,23.0,1,0,13.9,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,23.0,23.0,23.0
-1065,,3,"Torfa, Mr. Assad",male,,0,0,7.2292,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,24.0,26.0,29.0
+1065,,3,"Torfa, Mr. Assad",male,,0,0,7.2292,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,23.0,26.0,29.0
 1066,,3,"Asplund, Mr. Carl Oscar Vilhelm Gustafsson",male,40.0,1,5,31.3875,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,big_family,1,0,0,Unknown,0,0,1,40.0,40.0,40.0
 1067,,2,"Brown, Miss. Edith Eileen",female,15.0,0,2,39.0,S,1,0,0,1,0,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,15.0,15.0,15.0
 1068,,2,"Sincock, Miss. Maude",female,20.0,0,0,36.75,S,1,0,0,1,0,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,20.0,20.0,20.0
@@ -182,15 +182,15 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 1072,,2,"McCrie, Mr. James Matthew",male,30.0,0,0,13.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,30.0,30.0
 1073,,1,"Compton, Mr. Alexander Taylor Jr",male,37.0,1,1,83.1583,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,E,1,0,0,37.0,37.0,37.0
 1074,,1,"Marvin, Mrs. Daniel Warner (Mary Graham Carmichael Farquarson)",female,18.0,1,0,53.1,S,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,D,0,0,1,18.0,18.0,18.0
-1075,,3,"Lane, Mr. Patrick",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,43.0,30.0,29.0
+1075,,3,"Lane, Mr. Patrick",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,46.0,30.0,29.0
 1076,,1,"Douglas, Mrs. Frederick Charles (Mary Helene Baxter)",female,27.0,1,1,247.5208,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,B,1,0,0,27.0,27.0,27.0
 1077,,2,"Maybery, Mr. Frank Hubert",male,40.0,0,0,16.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,40.0,40.0,40.0
 1078,,2,"Phillips, Miss. Alice Frances Louisa",female,21.0,0,1,21.0,S,1,0,0,1,0,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,21.0,21.0,21.0
 1079,,3,"Davies, Mr. Joseph",male,17.0,2,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,17.0,17.0,17.0
-1080,,3,"Sage, Miss. Ada",female,,8,2,69.55,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,big_family,1,0,0,Unknown,0,0,1,19.0,9.0,22.0
+1080,,3,"Sage, Miss. Ada",female,,8,2,69.55,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,big_family,1,0,0,Unknown,0,0,1,21.0,9.0,22.0
 1081,,2,"Veal, Mr. James",male,40.0,0,0,13.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,40.0,40.0,40.0
 1082,,2,"Angle, Mr. William A",male,34.0,1,0,26.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,34.0,34.0,34.0
-1083,,1,"Salomon, Mr. Abraham L",male,,0,0,26.0,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,46.0,41.0,29.0
+1083,,1,"Salomon, Mr. Abraham L",male,,0,0,26.0,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,50.0,41.0,29.0
 1084,,3,"van Billiard, Master. Walter John",male,11.5,1,1,14.5,S,0,1,0,0,1,Master,0,1,0,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,11.5,11.5,11.5
 1085,,2,"Lingane, Mr. John",male,61.0,0,0,12.35,Q,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,61.0,61.0,61.0
 1086,,2,"Drew, Master. Marshall Brines",male,8.0,0,2,32.5,S,0,1,0,1,0,Master,0,1,0,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,8.0,8.0,8.0
@@ -198,41 +198,41 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 1088,,1,"Spedden, Master. Robert Douglas",male,6.0,0,2,134.5,C,0,1,1,0,0,Master,0,1,0,0,0,0,0,small_family,0,1,0,E,1,0,0,6.0,6.0,6.0
 1089,,3,"Nilsson, Miss. Berta Olivia",female,18.0,0,0,7.775,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,18.0,18.0,18.0
 1090,,2,"Baimbrigge, Mr. Charles Robert",male,23.0,0,0,10.5,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,23.0,23.0,23.0
-1091,,3,"Rasmussen, Mrs. (Lena Jacobsen Solvang)",female,,0,0,8.1125,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,0,0,1,32.0,32.0,35.0
-1092,,3,"Murphy, Miss. Nora",female,,0,0,15.5,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,18.0,22.0,22.0
+1091,,3,"Rasmussen, Mrs. (Lena Jacobsen Solvang)",female,,0,0,8.1125,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,0,0,1,30.0,32.0,35.0
+1092,,3,"Murphy, Miss. Nora",female,,0,0,15.5,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,16.0,22.0,22.0
 1093,,3,"Danbom, Master. Gilbert Sigvard Emanuel",male,0.33,0,2,14.4,S,0,1,0,0,1,Master,0,1,0,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,0.33,0.33,0.33
 1094,,1,"Astor, Col. John Jacob",male,47.0,1,0,227.525,C,0,1,1,0,0,Officer,0,0,0,0,0,0,1,small_family,0,1,0,C,1,0,0,47.0,47.0,47.0
 1095,,2,"Quick, Miss. Winifred Vera",female,8.0,1,1,26.0,S,1,0,0,1,0,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,8.0,8.0,8.0
 1096,,2,"Andrew, Mr. Frank Thomas",male,25.0,0,0,10.5,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,25.0,25.0,25.0
-1097,,1,"Omont, Mr. Alfred Fernand",male,,0,0,25.7417,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,29.0,39.0,29.0
+1097,,1,"Omont, Mr. Alfred Fernand",male,,0,0,25.7417,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,27.0,39.0,29.0
 1098,,3,"McGowan, Miss. Katherine",female,35.0,0,0,7.75,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,35.0,35.0,35.0
 1099,,2,"Collett, Mr. Sidney C Stuart",male,24.0,0,0,10.5,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,24.0,24.0,24.0
 1100,,1,"Rosenbaum, Miss. Edith Louise",female,33.0,0,0,27.7208,C,1,0,1,0,0,Miss,0,0,1,0,0,0,0,solo,0,0,1,A,1,0,0,33.0,33.0,33.0
 1101,,3,"Delalic, Mr. Redjo",male,25.0,0,0,7.8958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,25.0,25.0,25.0
 1102,,3,"Andersen, Mr. Albert Karvin",male,32.0,0,0,22.525,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,32.0,32.0,32.0
-1103,,3,"Finoli, Mr. Luigi",male,,0,0,7.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,27.0,27.0,29.0
+1103,,3,"Finoli, Mr. Luigi",male,,0,0,7.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,26.0,27.0,29.0
 1104,,2,"Deacon, Mr. Percy William",male,17.0,0,0,73.5,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,17.0,17.0,17.0
 1105,,2,"Howard, Mrs. Benjamin (Ellen Truelove Arman)",female,60.0,1,0,26.0,S,1,0,0,1,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,60.0,60.0,60.0
 1106,,3,"Andersson, Miss. Ida Augusta Margareta",female,38.0,4,2,7.775,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,big_family,1,0,0,Unknown,0,0,1,38.0,38.0,38.0
 1107,,1,"Head, Mr. Christopher",male,42.0,0,0,42.5,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,B,0,0,1,42.0,42.0,42.0
-1108,,3,"Mahon, Miss. Bridget Delia",female,,0,0,7.8792,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,21.0,22.0,22.0
+1108,,3,"Mahon, Miss. Bridget Delia",female,,0,0,7.8792,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,22.0,22.0,22.0
 1109,,1,"Wick, Mr. George Dennick",male,57.0,1,1,164.8667,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,57.0,57.0,57.0
 1110,,1,"Widener, Mrs. George Dunton (Eleanor Elkins)",female,50.0,1,1,211.5,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,C,1,0,0,50.0,50.0,50.0
-1111,,3,"Thomson, Mr. Alexander Morrison",male,,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,27.0,29.0
+1111,,3,"Thomson, Mr. Alexander Morrison",male,,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,29.0,27.0,29.0
 1112,,2,"Duran y More, Miss. Florentina",female,30.0,1,0,13.8583,C,1,0,0,1,0,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,1,0,0,30.0,30.0,30.0
 1113,,3,"Reynolds, Mr. Harold J",male,21.0,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,21.0,21.0,21.0
 1114,,2,"Cook, Mrs. (Selena Rogers)",female,22.0,0,0,10.5,S,1,0,0,1,0,Mrs,0,0,0,0,1,0,0,solo,0,0,1,F,0,0,1,22.0,22.0,22.0
 1115,,3,"Karlsson, Mr. Einar Gervasius",male,21.0,0,0,7.7958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,21.0,21.0,21.0
 1116,,1,"Candee, Mrs. Edward (Helen Churchill Hungerford)",female,53.0,0,0,27.4458,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,1,0,0,53.0,53.0,53.0
-1117,,3,"Moubarek, Mrs. George (Omine Amenia"" Alexander)""",female,,0,2,15.2458,C,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,1,0,0,31.0,28.0,35.0
+1117,,3,"Moubarek, Mrs. George (Omine Amenia"" Alexander)""",female,,0,2,15.2458,C,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,1,0,0,32.0,28.0,35.0
 1118,,3,"Asplund, Mr. Johan Charles",male,23.0,0,0,7.7958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,23.0,23.0,23.0
-1119,,3,"McNeill, Miss. Bridget",female,,0,0,7.75,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,26.0,22.0,22.0
+1119,,3,"McNeill, Miss. Bridget",female,,0,0,7.75,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,25.0,22.0,22.0
 1120,,3,"Everett, Mr. Thomas James",male,40.5,0,0,15.1,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,40.5,40.5,40.5
 1121,,2,"Hocking, Mr. Samuel James Metcalfe",male,36.0,0,0,13.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,36.0,36.0,36.0
 1122,,2,"Sweet, Mr. George Frederick",male,14.0,0,0,65.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,14.0,14.0,14.0
 1123,,1,"Willard, Miss. Constance",female,21.0,0,0,26.55,S,1,0,1,0,0,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,21.0,21.0,21.0
 1124,,3,"Wiklund, Mr. Karl Johan",male,21.0,1,0,6.4958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,21.0,21.0,21.0
-1125,,3,"Linehan, Mr. Michael",male,,0,0,7.8792,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,30.0,30.0,29.0
+1125,,3,"Linehan, Mr. Michael",male,,0,0,7.8792,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,28.0,30.0,29.0
 1126,,1,"Cumings, Mr. John Bradley",male,39.0,1,0,71.2833,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,C,1,0,0,39.0,39.0,39.0
 1127,,3,"Vendel, Mr. Olof Edvin",male,20.0,0,0,7.8542,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,20.0,20.0,20.0
 1128,,1,"Warren, Mr. Frank Manley",male,64.0,1,0,75.25,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,D,1,0,0,64.0,64.0,64.0
@@ -243,19 +243,19 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 1133,,2,"Christy, Mrs. (Alice Frances)",female,45.0,0,2,30.0,S,1,0,0,1,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,45.0,45.0,45.0
 1134,,1,"Spedden, Mr. Frederic Oakley",male,45.0,1,1,134.5,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,E,1,0,0,45.0,45.0,45.0
 1135,,3,"Hyman, Mr. Abraham",male,,0,0,7.8875,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,26.0,27.0,29.0
-1136,,3,"Johnston, Master. William Arthur Willie""""",male,,1,2,23.45,S,0,1,0,0,1,Master,0,1,0,0,0,0,0,big_family,1,0,0,Unknown,0,0,1,2.0,4.0,4.0
+1136,,3,"Johnston, Master. William Arthur Willie""""",male,,1,2,23.45,S,0,1,0,0,1,Master,0,1,0,0,0,0,0,big_family,1,0,0,Unknown,0,0,1,4.0,4.0,4.0
 1137,,1,"Kenyon, Mr. Frederick R",male,41.0,1,0,51.8625,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,D,0,0,1,41.0,41.0,41.0
 1138,,2,"Karnes, Mrs. J Frank (Claire Bennett)",female,22.0,0,0,21.0,S,1,0,0,1,0,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,0,0,1,22.0,22.0,22.0
 1139,,2,"Drew, Mr. James Vivian",male,42.0,1,1,32.5,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,42.0,42.0,42.0
 1140,,2,"Hold, Mrs. Stephen (Annie Margaret Hill)",female,29.0,1,0,26.0,S,1,0,0,1,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,29.0,29.0,29.0
-1141,,3,"Khalil, Mrs. Betros (Zahie Maria"" Elias)""",female,,1,0,14.4542,C,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,1,0,0,17.0,28.0,35.0
+1141,,3,"Khalil, Mrs. Betros (Zahie Maria"" Elias)""",female,,1,0,14.4542,C,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,1,0,0,23.0,28.0,35.0
 1142,,2,"West, Miss. Barbara J",female,0.92,1,2,27.75,S,1,0,0,1,0,Miss,0,0,1,0,0,0,0,big_family,1,0,0,Unknown,0,0,1,0.92,0.92,0.92
 1143,,3,"Abrahamsson, Mr. Abraham August Johannes",male,20.0,0,0,7.925,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,20.0,20.0,20.0
 1144,,1,"Clark, Mr. Walter Miller",male,27.0,1,0,136.7792,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,C,1,0,0,27.0,27.0,27.0
 1145,,3,"Salander, Mr. Karl Johan",male,24.0,0,0,9.325,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,24.0,24.0,24.0
 1146,,3,"Wenzel, Mr. Linhart",male,32.5,0,0,9.5,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,32.5,32.5,32.5
-1147,,3,"MacKay, Mr. George William",male,,0,0,7.55,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,35.0,27.0,29.0
-1148,,3,"Mahon, Mr. John",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,43.0,30.0,29.0
+1147,,3,"MacKay, Mr. George William",male,,0,0,7.55,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,27.0,29.0
+1148,,3,"Mahon, Mr. John",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,46.0,30.0,29.0
 1149,,3,"Niklasson, Mr. Samuel",male,28.0,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,28.0,28.0,28.0
 1150,,2,"Bentham, Miss. Lilian W",female,19.0,0,0,13.0,S,1,0,0,1,0,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,19.0,19.0,19.0
 1151,,3,"Midtsjo, Mr. Karl Albert",male,21.0,0,0,7.775,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,21.0,21.0,21.0
@@ -264,16 +264,16 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 1154,,2,"Wells, Mrs. Arthur Henry (Addie"" Dart Trevaskis)""",female,29.0,0,2,23.0,S,1,0,0,1,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,29.0,29.0,29.0
 1155,,3,"Klasen, Miss. Gertrud Emilia",female,1.0,1,1,12.1833,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,1.0,1.0,1.0
 1156,,2,"Portaluppi, Mr. Emilio Ilario Giuseppe",male,30.0,0,0,12.7375,C,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,30.0,30.0,30.0
-1157,,3,"Lyntakoff, Mr. Stanko",male,,0,0,7.8958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,26.0,27.0,29.0
-1158,,1,"Chisholm, Mr. Roderick Robert Crispin",male,,0,0,0.0,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,43.0,41.0,29.0
-1159,,3,"Warren, Mr. Charles William",male,,0,0,7.55,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,35.0,27.0,29.0
+1157,,3,"Lyntakoff, Mr. Stanko",male,,0,0,7.8958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,27.0,27.0,29.0
+1158,,1,"Chisholm, Mr. Roderick Robert Crispin",male,,0,0,0.0,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,42.0,41.0,29.0
+1159,,3,"Warren, Mr. Charles William",male,,0,0,7.55,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,27.0,29.0
 1160,,3,"Howard, Miss. May Elizabeth",female,,0,0,8.05,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,20.0,18.0,22.0
 1161,,3,"Pokrnic, Mr. Mate",male,17.0,0,0,8.6625,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,17.0,17.0,17.0
 1162,,1,"McCaffry, Mr. Thomas Francis",male,46.0,0,0,75.2417,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,C,1,0,0,46.0,46.0,46.0
-1163,,3,"Fox, Mr. Patrick",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,43.0,30.0,29.0
+1163,,3,"Fox, Mr. Patrick",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,46.0,30.0,29.0
 1164,,1,"Clark, Mrs. Walter Miller (Virginia McDowell)",female,26.0,1,0,136.7792,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,C,1,0,0,26.0,26.0,26.0
-1165,,3,"Lennon, Miss. Mary",female,,1,0,15.5,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,0,1,0,18.0,18.0,22.0
-1166,,3,"Saade, Mr. Jean Nassr",male,,0,0,7.225,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,26.0,26.0,29.0
+1165,,3,"Lennon, Miss. Mary",female,,1,0,15.5,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,0,1,0,16.0,18.0,22.0
+1166,,3,"Saade, Mr. Jean Nassr",male,,0,0,7.225,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,27.0,26.0,29.0
 1167,,2,"Bryhl, Miss. Dagmar Jenny Ingeborg ",female,20.0,1,0,26.0,S,1,0,0,1,0,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,20.0,20.0,20.0
 1168,,2,"Parker, Mr. Clifford Richard",male,28.0,0,0,10.5,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,28.0,28.0,28.0
 1169,,2,"Faunthorpe, Mr. Harry",male,40.0,1,0,26.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,40.0,40.0,40.0
@@ -281,29 +281,29 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 1171,,2,"Oxenham, Mr. Percy Thomas",male,22.0,0,0,10.5,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,22.0,22.0,22.0
 1172,,3,"Oreskovic, Miss. Jelka",female,23.0,0,0,8.6625,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,23.0,23.0,23.0
 1173,,3,"Peacock, Master. Alfred Edward",male,0.75,1,1,13.775,S,0,1,0,0,1,Master,0,1,0,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,0.75,0.75,0.75
-1174,,3,"Fleming, Miss. Honora",female,,0,0,7.75,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,26.0,22.0,22.0
+1174,,3,"Fleming, Miss. Honora",female,,0,0,7.75,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,25.0,22.0,22.0
 1175,,3,"Touma, Miss. Maria Youssef",female,9.0,1,1,15.2458,C,1,0,0,0,1,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,1,0,0,9.0,9.0,9.0
 1176,,3,"Rosblom, Miss. Salli Helena",female,2.0,1,1,20.2125,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,2.0,2.0,2.0
 1177,,3,"Dennis, Mr. William",male,36.0,0,0,7.25,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,36.0,36.0,36.0
-1178,,3,"Franklin, Mr. Charles (Charles Fardon)",male,,0,0,7.25,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,28.0,27.0,29.0
+1178,,3,"Franklin, Mr. Charles (Charles Fardon)",male,,0,0,7.25,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,31.0,27.0,29.0
 1179,,1,"Snyder, Mr. John Pillsbury",male,24.0,1,0,82.2667,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,B,0,0,1,24.0,24.0,24.0
-1180,,3,"Mardirosian, Mr. Sarkis",male,,0,0,7.2292,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,FE,1,0,0,24.0,26.0,29.0
-1181,,3,"Ford, Mr. Arthur",male,,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,27.0,29.0
-1182,,1,"Rheims, Mr. George Alexander Lucien",male,,0,0,39.6,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,46.0,41.0,29.0
+1180,,3,"Mardirosian, Mr. Sarkis",male,,0,0,7.2292,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,FE,1,0,0,23.0,26.0,29.0
+1181,,3,"Ford, Mr. Arthur",male,,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,29.0,27.0,29.0
+1182,,1,"Rheims, Mr. George Alexander Lucien",male,,0,0,39.6,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,44.0,41.0,29.0
 1183,,3,"Daly, Miss. Margaret Marcella Maggie""""",female,30.0,0,0,6.95,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,30.0,30.0,30.0
-1184,,3,"Nasr, Mr. Mustafa",male,,0,0,7.2292,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,24.0,26.0,29.0
+1184,,3,"Nasr, Mr. Mustafa",male,,0,0,7.2292,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,23.0,26.0,29.0
 1185,,1,"Dodge, Dr. Washington",male,53.0,1,1,81.8583,S,0,1,1,0,0,Dr,1,0,0,0,0,0,0,small_family,0,1,0,A,0,0,1,53.0,53.0,53.0
 1186,,3,"Wittevrongel, Mr. Camille",male,36.0,0,0,9.5,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,36.0,36.0,36.0
 1187,,3,"Angheloff, Mr. Minko",male,26.0,0,0,7.8958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,26.0,26.0,26.0
 1188,,2,"Laroche, Miss. Louise",female,1.0,1,2,41.5792,C,1,0,0,1,0,Miss,0,0,1,0,0,0,0,big_family,1,0,0,Unknown,1,0,0,1.0,1.0,1.0
-1189,,3,"Samaan, Mr. Hanna",male,,2,0,21.6792,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,23.0,22.0,29.0
+1189,,3,"Samaan, Mr. Hanna",male,,2,0,21.6792,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,24.0,22.0,29.0
 1190,,1,"Loring, Mr. Joseph Holland",male,30.0,0,0,45.5,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,30.0,30.0
 1191,,3,"Johansson, Mr. Nils",male,29.0,0,0,7.8542,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,29.0,29.0,29.0
 1192,,3,"Olsson, Mr. Oscar Wilhelm",male,32.0,0,0,7.775,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,32.0,32.0,32.0
-1193,,2,"Malachard, Mr. Noel",male,,0,0,15.0458,C,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,D,1,0,0,28.0,28.0,29.0
+1193,,2,"Malachard, Mr. Noel",male,,0,0,15.0458,C,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,D,1,0,0,31.0,28.0,29.0
 1194,,2,"Phillips, Mr. Escott Robert",male,43.0,0,1,21.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,43.0,43.0,43.0
 1195,,3,"Pokrnic, Mr. Tome",male,24.0,0,0,8.6625,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,24.0,24.0,24.0
-1196,,3,"McCarthy, Miss. Catherine Katie""""",female,,0,0,7.75,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,26.0,22.0,22.0
+1196,,3,"McCarthy, Miss. Catherine Katie""""",female,,0,0,7.75,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,25.0,22.0,22.0
 1197,,1,"Crosby, Mrs. Edward Gifford (Catherine Elizabeth Halstead)",female,64.0,1,1,26.55,S,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,B,0,0,1,64.0,64.0,64.0
 1198,,1,"Allison, Mr. Hudson Joshua Creighton",male,30.0,1,2,151.55,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,big_family,1,0,0,C,0,0,1,30.0,30.0,30.0
 1199,,3,"Aks, Master. Philip Frank",male,0.83,0,1,9.35,S,0,1,0,0,1,Master,0,1,0,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,0.83,0.83,0.83
@@ -311,7 +311,7 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 1201,,3,"Hansen, Mrs. Claus Peter (Jennie L Howard)",female,45.0,1,0,14.1083,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,45.0,45.0,45.0
 1202,,3,"Cacic, Mr. Jego Grga",male,18.0,0,0,8.6625,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,18.0,18.0,18.0
 1203,,3,"Vartanian, Mr. David",male,22.0,0,0,7.225,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,22.0,22.0,22.0
-1204,,3,"Sadowitz, Mr. Harry",male,,0,0,7.575,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,34.0,27.0,29.0
+1204,,3,"Sadowitz, Mr. Harry",male,,0,0,7.575,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,31.0,27.0,29.0
 1205,,3,"Carr, Miss. Jeannie",female,37.0,0,0,7.75,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,37.0,37.0,37.0
 1206,,1,"White, Mrs. John Stuart (Ella Holmes)",female,55.0,0,0,135.6333,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,solo,0,0,1,C,1,0,0,55.0,55.0,55.0
 1207,,3,"Hagardon, Miss. Kate",female,17.0,0,0,7.7333,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,17.0,17.0,17.0
@@ -331,19 +331,19 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 1221,,2,"Enander, Mr. Ingvar",male,21.0,0,0,13.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,21.0,21.0,21.0
 1222,,2,"Davies, Mrs. John Morgan (Elizabeth Agnes Mary White) ",female,48.0,0,2,36.75,S,1,0,0,1,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,48.0,48.0,48.0
 1223,,1,"Dulles, Mr. William Crothers",male,39.0,0,0,29.7,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,A,1,0,0,39.0,39.0,39.0
-1224,,3,"Thomas, Mr. Tannous",male,,0,0,7.225,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,26.0,26.0,29.0
+1224,,3,"Thomas, Mr. Tannous",male,,0,0,7.225,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,27.0,26.0,29.0
 1225,,3,"Nakid, Mrs. Said (Waika Mary"" Mowad)""",female,19.0,1,1,15.7417,C,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,1,0,0,19.0,19.0,19.0
 1226,,3,"Cor, Mr. Ivan",male,27.0,0,0,7.8958,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,27.0,27.0,27.0
 1227,,1,"Maguire, Mr. John Edward",male,30.0,0,0,26.0,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,C,0,0,1,30.0,30.0,30.0
 1228,,2,"de Brito, Mr. Jose Joaquim",male,32.0,0,0,13.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,32.0,32.0,32.0
 1229,,3,"Elias, Mr. Joseph",male,39.0,0,2,7.2292,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,39.0,39.0,39.0
 1230,,2,"Denbury, Mr. Herbert",male,25.0,0,0,31.5,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,25.0,25.0,25.0
-1231,,3,"Betros, Master. Seman",male,,0,0,7.2292,C,0,1,0,0,1,Master,0,1,0,0,0,0,0,solo,0,0,1,Unknown,1,0,0,10.0,9.0,4.0
+1231,,3,"Betros, Master. Seman",male,,0,0,7.2292,C,0,1,0,0,1,Master,0,1,0,0,0,0,0,solo,0,0,1,Unknown,1,0,0,6.0,9.0,4.0
 1232,,2,"Fillbrook, Mr. Joseph Charles",male,18.0,0,0,10.5,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,18.0,18.0,18.0
 1233,,3,"Lundstrom, Mr. Thure Edvin",male,32.0,0,0,7.5792,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,32.0,32.0,32.0
-1234,,3,"Sage, Mr. John George",male,,1,9,69.55,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,big_family,1,0,0,Unknown,0,0,1,34.0,22.0,29.0
+1234,,3,"Sage, Mr. John George",male,,1,9,69.55,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,big_family,1,0,0,Unknown,0,0,1,28.0,22.0,29.0
 1235,,1,"Cardeza, Mrs. James Warburton Martinez (Charlotte Wardle Drake)",female,58.0,0,1,512.3292,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,B,1,0,0,58.0,58.0,58.0
-1236,,3,"van Billiard, Master. James William",male,,1,1,14.5,S,0,1,0,0,1,Master,0,1,0,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,6.0,8.0,4.0
+1236,,3,"van Billiard, Master. James William",male,,1,1,14.5,S,0,1,0,0,1,Master,0,1,0,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,11.0,8.0,4.0
 1237,,3,"Abelseth, Miss. Karen Marie",female,16.0,0,0,7.65,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,16.0,16.0,16.0
 1238,,2,"Botsford, Mr. William Hull",male,26.0,0,0,13.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,26.0,26.0,26.0
 1239,,3,"Whabee, Mrs. George Joseph (Shawneene Abi-Saab)",female,38.0,0,0,7.2292,C,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,1,0,0,38.0,38.0,38.0
@@ -356,16 +356,16 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 1246,,3,"Dean, Miss. Elizabeth Gladys Millvina""""",female,0.17,1,2,20.575,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,big_family,1,0,0,Unknown,0,0,1,0.17,0.17,0.17
 1247,,1,"Julian, Mr. Henry Forbes",male,50.0,0,0,26.0,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,E,0,0,1,50.0,50.0,50.0
 1248,,1,"Brown, Mrs. John Murray (Caroline Lane Lamson)",female,59.0,2,0,51.4792,S,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,C,0,0,1,59.0,59.0,59.0
-1249,,3,"Lockyer, Mr. Edward",male,,0,0,7.8792,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,27.0,27.0,29.0
-1250,,3,"O'Keefe, Mr. Patrick",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,43.0,30.0,29.0
+1249,,3,"Lockyer, Mr. Edward",male,,0,0,7.8792,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,28.0,27.0,29.0
+1250,,3,"O'Keefe, Mr. Patrick",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,46.0,30.0,29.0
 1251,,3,"Lindell, Mrs. Edvard Bengtsson (Elin Gerda Persson)",female,30.0,1,0,15.55,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,30.0,30.0,30.0
 1252,,3,"Sage, Master. William Henry",male,14.5,8,2,69.55,S,0,1,0,0,1,Master,0,1,0,0,0,0,0,big_family,1,0,0,Unknown,0,0,1,14.5,14.5,14.5
 1253,,2,"Mallet, Mrs. Albert (Antoinette Magnin)",female,24.0,1,1,37.0042,C,1,0,0,1,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,1,0,0,24.0,24.0,24.0
 1254,,2,"Ware, Mrs. John James (Florence Louise Long)",female,31.0,0,0,21.0,S,1,0,0,1,0,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,0,0,1,31.0,31.0,31.0
 1255,,3,"Strilic, Mr. Ivan",male,27.0,0,0,8.6625,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,27.0,27.0,27.0
 1256,,1,"Harder, Mrs. George Achilles (Dorothy Annan)",female,25.0,1,0,55.4417,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,E,1,0,0,25.0,25.0,25.0
-1257,,3,"Sage, Mrs. John (Annie Bullen)",female,,1,9,69.55,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,big_family,1,0,0,Unknown,0,0,1,37.0,27.0,35.0
-1258,,3,"Caram, Mr. Joseph",male,,1,0,14.4583,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,22.0,22.0,29.0
+1257,,3,"Sage, Mrs. John (Annie Bullen)",female,,1,9,69.55,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,big_family,1,0,0,Unknown,0,0,1,34.0,27.0,35.0
+1258,,3,"Caram, Mr. Joseph",male,,1,0,14.4583,C,0,1,0,0,1,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,1,0,0,27.0,22.0,29.0
 1259,,3,"Riihivouri, Miss. Susanna Juhantytar Sanni""""",female,22.0,0,0,39.6875,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,22.0,22.0,22.0
 1260,,1,"Gibson, Mrs. Leonard (Pauline C Boeson)",female,45.0,0,1,59.4,C,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,1,0,0,45.0,45.0,45.0
 1261,,2,"Pallas y Castello, Mr. Emilio",male,29.0,0,0,13.8583,C,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,1,0,0,29.0,29.0,29.0
@@ -379,11 +379,11 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 1269,,2,"Cotterill, Mr. Henry Harry""""",male,21.0,0,0,11.5,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,21.0,21.0,21.0
 1270,,1,"Hipkins, Mr. William Edward",male,55.0,0,0,50.0,S,0,1,1,0,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,C,0,0,1,55.0,55.0,55.0
 1271,,3,"Asplund, Master. Carl Edgar",male,5.0,4,2,31.3875,S,0,1,0,0,1,Master,0,1,0,0,0,0,0,big_family,1,0,0,Unknown,0,0,1,5.0,5.0,5.0
-1272,,3,"O'Connor, Mr. Patrick",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,43.0,30.0,29.0
+1272,,3,"O'Connor, Mr. Patrick",male,,0,0,7.75,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,46.0,30.0,29.0
 1273,,3,"Foley, Mr. Joseph",male,26.0,0,0,7.8792,Q,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,1,0,26.0,26.0,26.0
-1274,,3,"Risien, Mrs. Samuel (Emma)",female,,0,0,14.5,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,0,0,1,36.0,33.0,35.0
+1274,,3,"Risien, Mrs. Samuel (Emma)",female,,0,0,14.5,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,solo,0,0,1,Unknown,0,0,1,38.0,33.0,35.0
 1275,,3,"McNamee, Mrs. Neal (Eileen O'Leary)",female,19.0,1,0,16.1,S,1,0,0,0,1,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,Unknown,0,0,1,19.0,19.0,19.0
-1276,,2,"Wheeler, Mr. Edwin Frederick""""",male,,0,0,12.875,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,32.0,30.0,29.0
+1276,,2,"Wheeler, Mr. Edwin Frederick""""",male,,0,0,12.875,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,33.0,30.0,29.0
 1277,,2,"Herman, Miss. Kate",female,24.0,1,2,65.0,S,1,0,0,1,0,Miss,0,0,1,0,0,0,0,big_family,1,0,0,Unknown,0,0,1,24.0,24.0,24.0
 1278,,3,"Aronsson, Mr. Ernst Axel Algot",male,24.0,0,0,7.775,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,24.0,24.0,24.0
 1279,,2,"Ashby, Mr. John",male,57.0,0,0,13.0,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,57.0,57.0,57.0
@@ -407,13 +407,13 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare,Embarked,female,male,P
 1297,,2,"Nourney, Mr. Alfred (Baron von Drachstedt"")""",male,20.0,0,0,13.8625,C,0,1,0,1,0,Mr,0,0,0,1,0,0,0,solo,0,0,1,D,1,0,0,20.0,20.0,20.0
 1298,,2,"Ware, Mr. William Jeffery",male,23.0,1,0,10.5,S,0,1,0,1,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,Unknown,0,0,1,23.0,23.0,23.0
 1299,,1,"Widener, Mr. George Dunton",male,50.0,1,1,211.5,C,0,1,1,0,0,Mr,0,0,0,1,0,0,0,small_family,0,1,0,C,1,0,0,50.0,50.0,50.0
-1300,,3,"Riordan, Miss. Johanna Hannah""""",female,,0,0,7.7208,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,21.0,22.0,22.0
+1300,,3,"Riordan, Miss. Johanna Hannah""""",female,,0,0,7.7208,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,18.0,22.0,22.0
 1301,,3,"Peacock, Miss. Treasteall",female,3.0,1,1,13.775,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,small_family,0,1,0,Unknown,0,0,1,3.0,3.0,3.0
-1302,,3,"Naughton, Miss. Hannah",female,,0,0,7.75,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,26.0,22.0,22.0
+1302,,3,"Naughton, Miss. Hannah",female,,0,0,7.75,Q,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,1,0,25.0,22.0,22.0
 1303,,1,"Minahan, Mrs. William Edward (Lillian E Thorpe)",female,37.0,1,0,90.0,Q,1,0,1,0,0,Mrs,0,0,0,0,1,0,0,small_family,0,1,0,C,0,1,0,37.0,37.0,37.0
 1304,,3,"Henriksson, Miss. Jenny Lovisa",female,28.0,0,0,7.775,S,1,0,0,0,1,Miss,0,0,1,0,0,0,0,solo,0,0,1,Unknown,0,0,1,28.0,28.0,28.0
-1305,,3,"Spector, Mr. Woolf",male,,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,27.0,29.0
+1305,,3,"Spector, Mr. Woolf",male,,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,29.0,27.0,29.0
 1306,,1,"Oliva y Ocana, Dona. Fermina",female,39.0,0,0,108.9,C,1,0,1,0,0,Nobility,0,0,0,0,0,1,0,solo,0,0,1,C,1,0,0,39.0,39.0,39.0
 1307,,3,"Saether, Mr. Simon Sivertsen",male,38.5,0,0,7.25,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,38.5,38.5,38.5
-1308,,3,"Ware, Mr. Frederick",male,,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,30.0,27.0,29.0
-1309,,3,"Peter, Master. Michael J",male,,1,1,22.3583,C,0,1,0,0,1,Master,0,1,0,0,0,0,0,small_family,0,1,0,Unknown,1,0,0,5.0,6.0,4.0
+1308,,3,"Ware, Mr. Frederick",male,,0,0,8.05,S,0,1,0,0,1,Mr,0,0,0,1,0,0,0,solo,0,0,1,Unknown,0,0,1,29.0,27.0,29.0
+1309,,3,"Peter, Master. Michael J",male,,1,1,22.3583,C,0,1,0,0,1,Master,0,1,0,0,0,0,0,small_family,0,1,0,Unknown,1,0,0,4.0,6.0,4.0
