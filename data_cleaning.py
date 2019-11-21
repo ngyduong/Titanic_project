@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import sklearn
+import re
 
 from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor
@@ -15,8 +16,8 @@ from sklearn.model_selection import cross_val_score
 
 # ==================== DATA MANIPULATION ==================== #
 
-test = pd.read_csv("titanic_data/test.csv")
-train = pd.read_csv("titanic_data/train.csv")
+test = pd.read_csv("titanic_data/raw_data/test.csv")
+train = pd.read_csv("titanic_data/raw_data/train.csv")
 
 # create dummy variables to separate data later on
 # if Train_set = 1 the observation was in the train originally
@@ -90,12 +91,23 @@ def Famsize_categorical(x):
 titanic["Famsize"] = titanic.Famsize.apply(lambda x: Famsize_categorical(x))
 titanic = pd.concat([titanic, pd.get_dummies(titanic["Famsize"])], axis=1)
 
+# //-- get Deck variable from Cabin \\-- #
+
+def get_deck(x):
+    if pd.isnull(x) == True :
+        return("Unknown")
+    else:
+        deck = re.sub('[^a-zA-Z]+', '', x)
+        Deck = "".join(sorted(set(deck), key=deck.index))
+        return(Deck.upper())
+# This function check if the value is null, if it's true then the function return the null value
+# If it's false then the function extract only unique characters from strings and return the upper case value
+
+titanic["Deck"] = titanic["Cabin"].apply(lambda x: get_deck(x))
+
 # //-- Dropping variables \\-- #
 
-# As there is too many missing value for Cabin, 1014 missing values over 1309 it's not wise to keep the
-# variable as it can create noises in the prediction. Therefore I have decided to remove the variable from the dataset
-# There doesn't seem to have any valuable information in the variable Ticket so I will drop the variable off as well
-titanic = titanic.drop(columns=["Cabin", 'Ticket'])
+titanic = titanic.drop(columns=['Ticket', 'Cabin'])
 
 # //-- DEALING WITH EMBARKED and FARE MISSING VALUES \\-- #
 
@@ -275,3 +287,4 @@ Clean_test = titanic.loc[titanic.Train_set == 0, :].reset_index(drop=True).drop(
 # I export them as csv file
 Clean_train.to_csv("titanic_data/Clean_train.csv", index=False)
 Clean_test.to_csv("titanic_data/Clean_test.csv", index=False)
+titanic.tpcsv('titanic_data/Clean_titanic.csv', index=False)
