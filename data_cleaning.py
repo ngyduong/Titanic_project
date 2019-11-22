@@ -276,6 +276,29 @@ SVM_reg.fit(titanic_WithAge_SVM.loc[:, independent_variables], titanic_WithAge_S
 titanic_WithoutAge_SVM.loc[:, 'Age_SVM'] = SVM_reg.predict(X = titanic_WithoutAge_SVM.loc[:, independent_variables]).astype(int)
 titanic = titanic_WithAge_SVM.append(titanic_WithoutAge_SVM).sort_values(by=['PassengerId']).reset_index(drop=True)
 
+# //-- Grouped Age using Age_median \\-- #
+
+# Given the shape of the distribution we can separate the Age by group such as
+# Age_group = 0_16 if the age is between 0 and 16 included
+# Age_group = 17_24 if the age is between 17 and 24 included
+# Age_group = 25_30 if the age is between 25 and 30 included
+# Age_group = 31_40 if the age is between 31 and 40 included
+# Age_group = over_40 if the age is strictly higher than 40
+
+def Age_categorical(x):
+    if x <= 16:
+        return("0_16")
+    elif x <= 24:
+        return("17_24")
+    elif x <= 30:
+        return("25_30")
+    elif x <= 40:
+        return("31_40")
+    else:
+        return("over_40")
+
+titanic["Age_group"] = titanic.Age_replace.apply(lambda x: Age_categorical(x))
+
 # ==================== SEPARATE THE DATA AGAIN AND GET BACK OUR TRAIN/TEST DATASETS ==================== #
 
 Age_compare = titanic.loc[:,["Age", "Age_Randomforest", "Age_SVM", "Age_replace"]]
@@ -285,6 +308,6 @@ Clean_train = titanic.loc[titanic.Train_set == 1, :].reset_index(drop=True).drop
 Clean_test = titanic.loc[titanic.Train_set == 0, :].reset_index(drop=True).drop(["Train_set"], axis=1)
 
 # I export them as csv file
-Clean_train.to_csv("titanic_data/Clean_train.csv", index=False)
-Clean_test.to_csv("titanic_data/Clean_test.csv", index=False)
-titanic.to_csv('titanic_data/Clean_titanic.csv', index=False)
+Clean_train.to_csv("titanic_data/clean_data/Clean_train.csv", index=False)
+Clean_test.to_csv("titanic_data/clean_data/Clean_test.csv", index=False)
+titanic.to_csv('titanic_data/clean_data/Clean_titanic.csv', index=False)

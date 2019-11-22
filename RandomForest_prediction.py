@@ -61,10 +61,10 @@ print("The standard deviation is", round(age_svm.std(), ndigits=2))
 # //--  CVS with Age replaced by median depending on title  \\-- #
 
 age_replace = cross_val_score(estimator=rfModel_Survived,
-                          X=train.loc[:, survival_features_replace],
-                          y=train.loc[:, 'Survived'],
-                          cv=10,
-                          n_jobs=2)
+                              X=train.loc[:, survival_features_replace],
+                              y=train.loc[:, 'Survived'],
+                              cv=10,
+                              n_jobs=2)
 
 print("The MEAN CV score is", round(age_replace.mean(), ndigits=2))
 print("The standard deviation is", round(age_replace.std(), ndigits=2))
