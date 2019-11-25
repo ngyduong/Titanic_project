@@ -25,12 +25,19 @@ survival_features_svm = ['SibSp', 'Parch', 'Fare', 'female', 'male','Pclass_1', 
                         'small_family', 'solo', 'C', 'Q', 'S', 'Age_SVM']
 
 survival_features_replace = ['SibSp', 'Parch', 'Fare', 'female', 'male','Pclass_1', 'Pclass_2', 'Pclass_3',
-                        'Dr', 'Master', 'Miss', 'Mr', 'Mrs', 'Nobility', 'Officer', 'big_family',
-                        'small_family', 'solo', 'C', 'Q', 'S', 'Age_replace']
+                            'Dr', 'Master', 'Miss', 'Mr', 'Mrs', 'Nobility', 'Officer', 'big_family',
+                            'small_family', 'solo', 'C', 'Q', 'S', 'Age_replace']
 
 # ==================== RANDOM FOREST ==================== #
 
-rfModel_Survived = RandomForestClassifier()
+rfModel_Survived = RandomForestClassifier(
+                                        n_estimators = 1000,
+                                        min_samples_split = 5,
+                                        min_samples_leaf = 4,
+                                        max_features = 'sqrt',
+                                        max_depth = 10,
+                                        bootstrap = True
+                                            )
 
 # //--  CVS with Age predicted by random forest  \\-- #
 
@@ -71,14 +78,12 @@ print("The standard deviation is", round(age_replace.std(), ndigits=2))
 # The MEAN CV score is 0.81
 # The standard deviation is 0.03
 
-# The one with the best accuracy and least standard deviation is the one in which we replace
-# the Age with the median age depending on the title we will therefore fit the model with this one
+# //--  FIT THE MODEMS with age Rf \\-- #
 
+rfModel_Survived.fit(train.loc[:, survival_features_rf], train.loc[:, 'Survived'])
 
-rfModel_Survived.fit(train.loc[:, survival_features_replace], train.loc[:, 'Survived'])
-
-test.loc[:, "Survived"] = rfModel_Survived.predict(test.loc[:, survival_features_replace]).astype(int)
+test.loc[:, "Survived"] = rfModel_Survived.predict(test.loc[:, survival_features_rf]).astype(int)
 rf_submission = test.loc[:, ["PassengerId", "Survived"]]
 
 # Export to CSV
-rf_submission.to_csv("titanic_submissions/Random_fores.csv", index=False)
+rf_submission.to_csv("titanic_submissions/Random_fores_rf.csv", index=False)
