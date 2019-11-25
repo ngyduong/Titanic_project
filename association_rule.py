@@ -10,7 +10,7 @@ import pandas as pd
 titanic = pd.read_csv("titanic_data/clean_data/Clean_titanic.csv")
 titanic = titanic.drop(['PassengerId', 'Name', 'Age', 'Train_set', 'female', 'male', 'Pclass_1',
                         'Pclass_2', 'Pclass_3', 'Dr', 'Master', 'Miss', 'Mr', 'Mrs','Nobility',
-                        'Officer', 'big_family', 'small_family', 'solo','Deck', 'Age_Randomforest',
+                        'Officer', 'big_family', 'small_family', 'solo', 'Deck', 'Age_Randomforest',
                         'Age_SVM', 'Age_replace', "C", "Q", "S", "Fare"], axis=1)
 
 # ==================== DATA PROCESSING ==================== #
@@ -22,10 +22,8 @@ def Pclass_process(x):
         return('First_class')
     elif x == 2:
         return('Second_class')
-    elif x == 3:
-        return('Third_class')
     else:
-        return("ERROR")
+        return('Third_class')
 
 titanic.loc[:, "Pclass"] = titanic.Pclass.apply(lambda x: Pclass_process(x))
 
@@ -51,7 +49,7 @@ def SibSp_process(x):
     else:
         return("2 or more siblings/spouses aboard")
 
-titanic.loc[:, "SibSp"] = titanic.SibSp.apply(lambda x: SibSP_process(x))
+titanic.loc[:, "SibSp"] = titanic.SibSp.apply(lambda x: SibSp_process(x))
 
 # //-- Parch (# of parents / children aboard the Titanic) \\-- #
 
