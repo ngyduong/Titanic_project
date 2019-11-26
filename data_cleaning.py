@@ -47,11 +47,11 @@ titanic["Title"] = point_split.iloc[:, 0]
 # There is in total 18 different title, I will narrow them down to make a generalized title class
 
 def generalized_title(x):
-    if x in ["Mr", 'Mrs', "Miss", "Master", "Dr"]:
+    if x in ["Mr", 'Mrs', "Miss", "Master"]:
         return(x)
     elif x in ["Don", "Lady", "Sir", "the Countess", "Dona", "Jonkheer"]:
         return("Nobility")
-    elif x in ["Rev", "Major", "Col", "Capt"]:
+    elif x in ["Rev", "Major", "Col", "Capt", "Dr"]:
         return("Officer")
     elif x == "Mme":
         return("Mrs")
@@ -105,9 +105,13 @@ def get_deck(x):
 
 titanic["Deck"] = titanic["Cabin"].apply(lambda x: get_deck(x))
 
+titanic = pd.concat([titanic, pd.get_dummies(titanic["Deck"])], axis=1)
+
 # //-- Dropping variables \\-- #
 
 titanic = titanic.drop(columns=['Ticket', 'Cabin'])
+titanic.rename(columns={'A':'Deck_A', 'B':'Deck_B', 'C':'Deck_C', 'D':'Deck_D', 'E':'Deck_E', 'F':'Deck_F',
+                        'FE':'Deck_FE', 'FG': 'Deck_FG', 'G': 'Deck_G', 'T': 'Deck_T'}, inplace=True)
 
 # //-- DEALING WITH EMBARKED and FARE MISSING VALUES \\-- #
 
@@ -122,10 +126,12 @@ titanic.Embarked.value_counts()
 titanic.Embarked.fillna("S", inplace=True)
 titanic = pd.concat([titanic, pd.get_dummies(titanic["Embarked"])], axis=1)
 
+titanic.rename(columns={'C':'Embarked_C', 'Q':'Embarked_Q', 'S':'Embarked_S'}, inplace=True)
+
 ## Fare missing values ##
 
 # As there is only 1 missing value for Fare we can replace the missing value by it's median
-titanic.Fare.fillna(titanic.Fare.median(), inplace=True)
+titanic.Fare = titanic.Fare.fillna(titanic.Fare.median())
 
 # ==================== DEALING WITH AGE VARIABLE ==================== #
 
@@ -164,11 +170,13 @@ titanic_WithAge = titanic[pd.isnull(titanic['Age_Randomforest']) == False]
 titanic_WithoutAge = titanic[pd.isnull(titanic['Age_Randomforest'])]
 
 # We will use theses variables as independent variables to predict the Age
-independent_variables = ['Pclass_1', 'Pclass_2', 'Pclass_3', 'female', 'male', 'C', 'Q', 'S',
-                         'Dr', 'Master', 'Miss', 'Mr', 'Mrs', 'Nobility', 'Officer',
-                         'big_family', 'small_family', 'solo', 'Parch', "SibSp", 'Fare']
+independent_variables = ['Pclass_1', 'Pclass_2', 'Pclass_3', 'female', 'male', 'Embarked_C', 'Embarked_Q',
+                         'Embarked_S','Master', 'Miss', 'Mr', 'Mrs', 'Nobility', 'Officer',
+                         'big_family', 'small_family', 'solo', 'Parch', "SibSp", 'Fare',
+                         'Deck_A', 'Deck_B', 'Deck_C', 'Deck_D', 'Deck_E', 'Deck_F',
+                         'Deck_FE', 'Deck_FG', 'Deck_G', 'Deck_T', 'Unknown']
 
-rfModel_Age = RandomForestRegressor()
+rfModel_Age = RandomForestRegressor(random_state=1234)
 
 age_accuracies = cross_val_score(estimator=rfModel_Age,
                                  X=titanic_WithAge.loc[:, independent_variables],
@@ -187,7 +195,6 @@ rfModel_Age.fit(titanic_WithAge.loc[:, independent_variables], titanic_WithAge.l
 
 titanic_WithoutAge.loc[:, 'Age_Randomforest'] = rfModel_Age.predict(X = titanic_WithoutAge.loc[:, independent_variables]).astype(int)
 titanic = titanic_WithAge.append(titanic_WithoutAge).sort_values(by=['PassengerId']).reset_index(drop=True)
-
 
 # =======================================================================================
 # # //--  Hyperparameter tuning for Age Random forest  \\-- #
@@ -247,7 +254,6 @@ titanic = titanic_WithAge.append(titanic_WithoutAge).sort_values(by=['PassengerI
 # # The model has increase by 8% and the standard deviation has decreased by 3%
 # =======================================================================================
 
-
 # //-- SVM for Age \\-- #
 
 plt.hist(titanic.Age)
@@ -302,6 +308,8 @@ titanic["Age_group"] = titanic.Age_replace.apply(lambda x: Age_categorical(x))
 # ==================== SEPARATE THE DATA AGAIN AND GET BACK OUR TRAIN/TEST DATASETS ==================== #
 
 Age_compare = titanic.loc[:,["Age", "Age_Randomforest", "Age_SVM", "Age_replace"]]
+
+titanic = titanic.drop(columns="Age")
 
 # I separate the titanic dataframe to their original train/test set
 Clean_train = titanic.loc[titanic.Train_set == 1, :].reset_index(drop=True).drop("Train_set", axis=1)
