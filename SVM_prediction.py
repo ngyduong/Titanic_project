@@ -83,4 +83,4 @@ print("The standard deviation is", round(svc_age_replace.std(), ndigits=4))
 svclassifier.fit(train.loc[:, survival_features_replace], train.loc[:, 'Survived'])
 test.loc[:, "Survived"] = svclassifier.predict(test.loc[:, survival_features_replace]).astype(int)
 SVM_test_basic = test.loc[:, ["PassengerId", "Survived"]]
-SVM_test_basic.to_csv("titanic_submissions/survival_prediction_svm222.csv", index=False)
+SVM_test_basic.to_csv("titanic_submissions/survival_prediction_svm.csv", index=False)
