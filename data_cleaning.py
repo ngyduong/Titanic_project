@@ -62,7 +62,7 @@ def generalized_title(x):
 
 titanic["Title"] = titanic.Title.apply(lambda x: generalized_title(x))
 
-# We now have narrowed down the 18 different title into only 7 generalized Title
+# We now have narrowed down the 18 different title into only 6 generalized Title
 # As we need the data in categorical form we will create dummy variables from Title
 
 titanic = pd.concat([titanic, pd.get_dummies(titanic["Title"])], axis=1)
@@ -307,15 +307,15 @@ titanic["Age_group"] = titanic.Age_replace.apply(lambda x: Age_categorical(x))
 
 # ==================== SEPARATE THE DATA AGAIN AND GET BACK OUR TRAIN/TEST DATASETS ==================== #
 
-Age_compare = titanic.loc[:,["Age", "Age_Randomforest", "Age_SVM", "Age_replace"]]
+Age_compare = titanic.loc[titanic.Age.isnull(), ["Age_Randomforest", "Age_SVM", "Age_replace"]]
 
-titanic = titanic.drop(columns="Age")
+# titanic = titanic.drop(columns="Age")
 
 # I separate the titanic dataframe to their original train/test set
-Clean_train = titanic.loc[titanic.Train_set == 1, :].reset_index(drop=True).drop("Train_set", axis=1)
-Clean_test = titanic.loc[titanic.Train_set == 0, :].reset_index(drop=True).drop(["Train_set"], axis=1)
+# Clean_train = titanic.loc[titanic.Train_set == 1, :].reset_index(drop=True).drop("Train_set", axis=1)
+# Clean_test = titanic.loc[titanic.Train_set == 0, :].reset_index(drop=True).drop(["Train_set"], axis=1)
 
 # I export them as csv file
-Clean_train.to_csv("titanic_data/clean_data/Clean_train.csv", index=False)
-Clean_test.to_csv("titanic_data/clean_data/Clean_test.csv", index=False)
-titanic.to_csv('titanic_data/clean_data/Clean_titanic.csv', index=False)
+# Clean_train.to_csv("titanic_data/clean_data/Clean_train.csv", index=False)
+# Clean_test.to_csv("titanic_data/clean_data/Clean_test.csv", index=False)
+# titanic.to_csv('titanic_data/clean_data/Clean_titanic.csv', index=False)
