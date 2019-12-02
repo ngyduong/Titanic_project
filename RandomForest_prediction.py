@@ -46,42 +46,42 @@ rfModel_Survived = RandomForestClassifier(n_estimators = 1000,
 
 # //--  CVS with Age predicted by random forest  \\-- #
 
-age_rf = cross_val_score(estimator=rfModel_Survived,
-                         X=train.loc[:, survival_features_rf],
-                         y=train.loc[:, 'Survived'],
-                         cv=10,
-                         n_jobs=2)
+randomf_age_rf = cross_val_score(estimator=rfModel_Survived,
+                                 X=train.loc[:, survival_features_rf],
+                                 y=train.loc[:, 'Survived'],
+                                 cv=10,
+                                 n_jobs=2)
 
-print("The MEAN CV score is", round(age_rf.mean(), ndigits=2))
-print("The standard deviation is", round(age_rf.std(), ndigits=2))
-# The MEAN CV score is 0.84
-# The standard deviation is 0.04
+print("The MEAN CV score is", round(randomf_age_rf.mean(), ndigits=4))
+print("The standard deviation is", round(randomf_age_rf.std(), ndigits=4))
+# The MEAN CV score is 0.8407
+# The standard deviation is 0.0409
 
 # //--  CVS with Age predicted by SVM  \\-- #
 
-age_svm = cross_val_score(estimator=rfModel_Survived,
-                          X=train.loc[:, survival_features_svm],
-                          y=train.loc[:, 'Survived'],
-                          cv=10,
-                          n_jobs=2)
+randomf_age_svm = cross_val_score(estimator=rfModel_Survived,
+                                  X=train.loc[:, survival_features_svm],
+                                  y=train.loc[:, 'Survived'],
+                                  cv=10,
+                                  n_jobs=2)
 
-print("The MEAN CV score is", round(age_svm.mean(), ndigits=2))
-print("The standard deviation is", round(age_svm.std(), ndigits=2))
-# The MEAN CV score is 0.84
-# The standard deviation is 0.04
+print("The MEAN CV score is", round(randomf_age_svm.mean(), ndigits=4))
+print("The standard deviation is", round(randomf_age_svm.std(), ndigits=4))
+# The MEAN CV score is 0.8351
+# The standard deviation is 0.0378
 
 # //--  CVS with Age replaced by median depending on title  \\-- #
 
-age_replace = cross_val_score(estimator=rfModel_Survived,
-                              X=train.loc[:, survival_features_replace],
-                              y=train.loc[:, 'Survived'],
-                              cv=10,
-                              n_jobs=2)
+randomf_age_replace = cross_val_score(estimator=rfModel_Survived,
+                                      X=train.loc[:, survival_features_replace],
+                                      y=train.loc[:, 'Survived'],
+                                      cv=10,
+                                      n_jobs=2)
 
-print("The MEAN CV score is", round(age_replace.mean(), ndigits=2))
-print("The standard deviation is", round(age_replace.std(), ndigits=2))
-# The MEAN CV score is 0.84
-# The standard deviation is 0.04
+print("The MEAN CV score is", round(randomf_age_replace.mean(), ndigits=4))
+print("The standard deviation is", round(randomf_age_replace.std(), ndigits=4))
+# The MEAN CV score is 0.8396
+# The standard deviation is 0.038
 
 # //--  FIT THE MODEMS with age Rf \\-- #
 

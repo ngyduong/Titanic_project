@@ -132,3 +132,13 @@ sns.boxplot(x='Title', y='Age_Randomforest', data=train)
 ax = sns.stripplot(x='Title', y='Age_Randomforest', data=train, color="red", jitter=0.2, size=2.5)
 plt.title("Age Boxplot by Title", loc="left")
 plt.ylabel('Age')
+
+# //-- Stat descriptive \\-- #
+
+column = ["Survived", "Pclass", "Sex", "Embarked", "Famsize", "Deck", "SibSp", "Parch"]
+
+value_count = {}
+for col in train.loc[:, column]:
+    value_count.update({col: train.loc[:, col].value_counts()})
+
+print(value_count)
