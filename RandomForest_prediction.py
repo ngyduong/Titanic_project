@@ -50,8 +50,8 @@ survival_features_rf = ['SibSp', 'Parch',
                        'Embarked_S', 'Age_Randomforest']
 
 rfModel_Survived = RandomForestClassifier(n_estimators = 5000,
-                                          min_samples_split = 5,
-                                          min_samples_leaf = 4,
+                                          min_samples_split = 10,
+                                          min_samples_leaf = 5,
                                           max_features = 'sqrt',
                                           max_depth = 10,
                                           bootstrap = True,
@@ -78,4 +78,4 @@ rf_submission = test.loc[:, ["PassengerId", "Survived"]]
 # Export to CSV
 rf_submission.to_csv("titanic_submissions/survival_prediction_randomforest.csv", index=False)
 
-# Kaggle score: 0.80382
+# Kaggle score: 0.80861
