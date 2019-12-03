@@ -81,9 +81,9 @@ titanic["Famsize"] = titanic['SibSp'] + titanic['Parch'] + 1
 def Famsize_categorical(x):
     if x == 1:
         return("solo")
-    if x in [2, 3]:
+    if x in [2,3,4]:
         return ("small_family")
-    elif x > 3:
+    elif x > 4:
         return("big_family")
     else:
         return("ERROR")
