@@ -14,36 +14,42 @@ from sklearn.model_selection import cross_val_score
 test = pd.read_csv("titanic_data/clean_data/Clean_test.csv")
 train = pd.read_csv("titanic_data/clean_data/Clean_train.csv")
 
-reduced_features2 = ['Ticket_SCA4', 'Ticket_Fa', 'Ticket_AS', 'Ticket_CASOTON', 'Ticket_SCOW',
-                     'Ticket_SC', 'Ticket_SOTONO2', 'Ticket_PPP', 'Ticket_SP', 'Ticket_SOP',
-                     'Ticket_SCAH', 'Ticket_SCParis', 'Ticket_FC', 'Ticket_FCC', 'Ticket_A4',
-                     'Ticket_SOC', 'Ticket_WEP', 'Ticket_PP', 'Nobility', 'Ticket_SCPARIS',
-                     'Ticket_LINE', 'Deck_G', 'Deck_F', 'Ticket_SOPP', 'Ticket_STONO2', 'Ticket_SOTONOQ',
-                     'Ticket_C', 'Deck_A', 'Ticket_WC', 'Ticket_CA', 'Ticket_A5', 'Embarked_Q',
-                     'Embarked_Q', 'Officer', 'Ticket_PC', 'Ticket_SWPP', 'Ticket_STONO', 'Embarked_C',
-                     'Deck_B', 'Embarked_C', 'Deck_C', 'Embarked_S', 'Deck_D', 'Embarked_S', 'Deck_E',
-                     'Master', 'solo', 'Ticket_XXX', 'small_family', 'Pclass_2', 'Pclass_1', 'big_family',
-                     'Parch', 'Mrs', 'Deck_Unknown', 'SibSp', 'Miss', 'Pclass_3', 'male', 'female', 'Mr',
-                     'Fare', 'Age_Randomforest']
+survival_features_rf = ['SibSp', 'Parch',
+                       'Fare', 'female', 'male', 'Pclass_1', 'Pclass_2',
+                       'Pclass_3', 'Master', 'Miss', 'Mr', 'Mrs', 'Nobility',
+                       'Officer', 'big_family', 'small_family', 'solo',
+                       'Deck_A', 'Deck_B', 'Deck_C', 'Deck_D', 'Deck_E', 'Deck_F', 'Deck_G',
+                       'Deck_T', 'Deck_Unknown', 'Ticket_A', 'Ticket_A4', 'Ticket_A5',
+                       'Ticket_AQ3', 'Ticket_AQ4', 'Ticket_AS', 'Ticket_C', 'Ticket_CA',
+                       'Ticket_CASOTON', 'Ticket_FC', 'Ticket_FCC', 'Ticket_Fa', 'Ticket_LINE',
+                       'Ticket_LP', 'Ticket_PC', 'Ticket_PP', 'Ticket_PPP', 'Ticket_SC',
+                       'Ticket_SCA3', 'Ticket_SCA4', 'Ticket_SCAH', 'Ticket_SCOW',
+                       'Ticket_SCPARIS', 'Ticket_SCParis', 'Ticket_SOC', 'Ticket_SOP',
+                       'Ticket_SOPP', 'Ticket_SOTONO2', 'Ticket_SOTONOQ', 'Ticket_SP',
+                       'Ticket_STONO', 'Ticket_STONO2', 'Ticket_STONOQ', 'Ticket_SWPP',
+                       'Ticket_WC', 'Ticket_WEP', 'Ticket_XXX', 'Embarked_C', 'Embarked_Q',
+                       'Embarked_S', 'Age_Randomforest']
 
 # ==================== Support Vector Machine (SVM) ==================== #
 
 svclassifier = SVC(kernel="linear", random_state=1234)
 
 svc_age_rf = cross_val_score(estimator=svclassifier,
-                             X=train.loc[:, reduced_features2],
+                             X=train.loc[:, survival_features_rf],
                              y=train.loc[:, 'Survived'],
-                             cv=5,
+                             cv=10,
                              n_jobs=2)
 
 print("The MEAN CV score is", round(svc_age_rf.mean(), ndigits=4))
 print("The standard deviation is", round(svc_age_rf.std(), ndigits=4))
-# The MEAN CV score is 0.8204
-# The standard deviation is 0.0217
+# The MEAN CV score is 0.8216
+# The standard deviation is 0.0247
 
 ## Fit the model
 
-svclassifier.fit(train.loc[:, reduced_features2], train.loc[:, 'Survived'])
-test.loc[:, "Survived"] = svclassifier.predict(test.loc[:, reduced_features2]).astype(int)
+svclassifier.fit(train.loc[:, survival_features_rf], train.loc[:, 'Survived'])
+test.loc[:, "Survived"] = svclassifier.predict(test.loc[:, survival_features_rf]).astype(int)
 SVM_test_basic = test.loc[:, ["PassengerId", "Survived"]]
 SVM_test_basic.to_csv("titanic_submissions/survival_prediction_svm.csv", index=False)
+
+# Kaggle score: 0.77990

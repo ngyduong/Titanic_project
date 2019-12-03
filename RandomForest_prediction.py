@@ -77,3 +77,5 @@ rf_submission = test.loc[:, ["PassengerId", "Survived"]]
 
 # Export to CSV
 rf_submission.to_csv("titanic_submissions/survival_prediction_randomforest.csv", index=False)
+
+# Kaggle score: 0.80382

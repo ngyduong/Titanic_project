@@ -267,10 +267,8 @@ titanic = titanic_WithAge_SVM.append(titanic_WithoutAge_SVM).sort_values(by=['Pa
 def Age_categorical(x):
     if x <= 16:
         return("0_16")
-    elif x <= 24:
-        return("17_24")
     elif x <= 30:
-        return("25_30")
+        return("17_30")
     elif x <= 40:
         return("31_40")
     else:
