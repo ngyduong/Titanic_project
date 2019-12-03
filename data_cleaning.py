@@ -12,7 +12,6 @@ import re
 from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import cross_val_score
-# from sklearn.model_selection import RandomizedSearchCV
 
 # ==================== DATA MANIPULATION ==================== #
 
@@ -256,13 +255,6 @@ titanic_WithoutAge_SVM.loc[:, 'Age_SVM'] = SVM_reg.predict(X = titanic_WithoutAg
 titanic = titanic_WithAge_SVM.append(titanic_WithoutAge_SVM).sort_values(by=['PassengerId']).reset_index(drop=True)
 
 # //-- Grouped Age using Age_median \\-- #
-
-# Given the shape of the distribution we can separate the Age by group such as
-# Age_group = 0_16 if the age is between 0 and 16 included
-# Age_group = 17_24 if the age is between 17 and 24 included
-# Age_group = 25_30 if the age is between 25 and 30 included
-# Age_group = 31_40 if the age is between 31 and 40 included
-# Age_group = over_40 if the age is strictly higher than 40
 
 def Age_categorical(x):
     if x <= 16:

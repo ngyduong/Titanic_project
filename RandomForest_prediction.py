@@ -16,18 +16,18 @@ train = pd.read_csv("titanic_data/clean_data/Clean_train.csv")
 
 # ==================== Age selection ==================== #
 
-# age_selection = ['Age_SVM', 'Age_replace', 'Age_Randomforest']
-#
-# clf = RandomForestClassifier(n_estimators=2000, max_features='sqrt', bootstrap=False)
-# clf = clf.fit(train.loc[:, age_selection], train.loc[:, 'Survived'])
-#
-# features = pd.DataFrame()
-# features['Age'] = train.loc[:, age_selection].columns
-# features['importance'] = clf.feature_importances_
-# features.sort_values(by=['importance'], ascending=True, inplace=True)
-# features.set_index('Age', inplace=True)
-#
-# features.plot(kind='barh', figsize=(20, 10), fontsize=10)
+age_selection = ['Age_SVM', 'Age_replace', 'Age_Randomforest']
+
+clf = RandomForestClassifier(n_estimators=2000, max_features='sqrt', bootstrap=False)
+clf = clf.fit(train.loc[:, age_selection], train.loc[:, 'Survived'])
+
+features = pd.DataFrame()
+features['Age'] = train.loc[:, age_selection].columns
+features['importance'] = clf.feature_importances_
+features.sort_values(by=['importance'], ascending=True, inplace=True)
+features.set_index('Age', inplace=True)
+
+features.plot(kind='barh', figsize=(20, 10), fontsize=10)
 
 # Age RandomForest est le plus important parmi les 3, nous allons donc utiliser age random forest
 
@@ -49,7 +49,7 @@ survival_features_rf = ['SibSp', 'Parch',
                        'Ticket_WC', 'Ticket_WEP', 'Ticket_XXX', 'Embarked_C', 'Embarked_Q',
                        'Embarked_S', 'Age_Randomforest']
 
-rfModel_Survived = RandomForestClassifier(n_estimators = 1000,
+rfModel_Survived = RandomForestClassifier(n_estimators = 5000,
                                           min_samples_split = 5,
                                           min_samples_leaf = 4,
                                           max_features = 'sqrt',

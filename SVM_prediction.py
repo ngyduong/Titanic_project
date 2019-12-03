@@ -32,7 +32,10 @@ survival_features_rf = ['SibSp', 'Parch',
 
 # ==================== Support Vector Machine (SVM) ==================== #
 
-svclassifier = SVC(kernel="linear", random_state=1234)
+svclassifier = SVC(kernel="linear",
+                   gamma = "scale",
+                   random_state=1234,
+                   shrinking=False)
 
 svc_age_rf = cross_val_score(estimator=svclassifier,
                              X=train.loc[:, survival_features_rf],
