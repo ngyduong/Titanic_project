@@ -16,22 +16,20 @@ train = pd.read_csv("titanic_data/clean_data/Clean_train.csv")
 
 # ==================== Age selection ==================== #
 
-age_selection = ['Age_SVM', 'Age_replace', 'Age_Randomforest']
+# age_selection = ['Age_SVM', 'Age_replace', 'Age_Randomforest']
+#
+# clf = RandomForestClassifier(n_estimators=2000, max_features='sqrt', bootstrap=False)
+# clf = clf.fit(train.loc[:, age_selection], train.loc[:, 'Survived'])
+#
+# features = pd.DataFrame()
+# features['Age'] = train.loc[:, age_selection].columns
+# features['importance'] = clf.feature_importances_
+# features.sort_values(by=['importance'], ascending=True, inplace=True)
+# features.set_index('Age', inplace=True)
+#
+# features.plot(kind='barh', figsize=(20, 10), fontsize=10)
 
-clf = RandomForestClassifier(n_estimators=2000, max_features='sqrt', bootstrap=False)
-clf = clf.fit(train.loc[:, age_selection], train.loc[:, 'Survived'])
-
-features = pd.DataFrame()
-features['Age'] = train.loc[:, age_selection].columns
-features['importance'] = clf.feature_importances_
-features.sort_values(by=['importance'], ascending=True, inplace=True)
-features.set_index('Age', inplace=True)
-
-features.plot(kind='barh', figsize=(20, 10), fontsize=10)
-
-# Age RandomForest est le plus important parmi les 3, nous allons donc utiliser age random forest
-
-# ==================== RANDOM FOREST ==================== #
+# ==================== Feature Visualisation ==================== #
 
 survival_features_rf = ['SibSp', 'Parch',
                        'Fare', 'female', 'male', 'Pclass_1', 'Pclass_2',
@@ -48,6 +46,19 @@ survival_features_rf = ['SibSp', 'Parch',
                        'Ticket_STONO', 'Ticket_STONO2', 'Ticket_STONOQ', 'Ticket_SWPP',
                        'Ticket_WC', 'Ticket_WEP', 'Ticket_XXX', 'Embarked_C', 'Embarked_Q',
                        'Embarked_S', 'Age_Randomforest']
+
+clf_survival = RandomForestClassifier(n_estimators=2000, max_features='sqrt', bootstrap=False)
+clf_survival = clf_survival.fit(train.loc[:, survival_features_rf], train.loc[:, 'Survived'])
+
+features_survival = pd.DataFrame()
+features_survival['Features'] = train.loc[:, survival_features_rf].columns
+features_survival['importance'] = clf_survival.feature_importances_
+features_survival.sort_values(by=['importance'], ascending=True, inplace=True)
+features_survival.set_index('Features', inplace=True)
+
+features_survival.plot(kind='barh', figsize=(20, 10), fontsize=5)
+
+# ==================== RANDOM FOREST ==================== #
 
 rfModel_Survived = RandomForestClassifier(n_estimators = 5000,
                                           min_samples_split = 10,
